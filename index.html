@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#10273c" name="theme-color"/>
+<title>CompraSmart · Móvil independiente 1.0</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#142137;background:#f5f7fb;font-synthesis:none}*{box-sizing:border-box}body{margin:0;min-width:320px}button,input,select{font:inherit}button{cursor:pointer}.container{max-width:1230px;margin:auto;padding:0 18px}.top{background:#0c1930;color:white}.head{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:12px;font-size:22px;font-weight:850;letter-spacing:-.7px}.brandicon{height:42px;width:42px;background:#c6f36b;border-radius:14px;display:grid;place-items:center;color:#153018;font-size:23px}.brand small{display:block;font-size:11px;color:#9facbf;font-weight:500;letter-spacing:.5px}.place{border:1px solid #334258;background:#16253e;padding:9px 13px;border-radius:12px;font-size:13px;color:#cfdae8}.hero{background:linear-gradient(120deg,#0d1b33 10%,#1c3b45 100%);color:white;padding:27px 0 31px}.hero-flex{display:flex;justify-content:space-between;gap:30px;align-items:flex-end}.eyebrow{color:#c8ec8e;text-transform:uppercase;font-weight:800;font-size:11px;letter-spacing:1.6px}.hero h1{font-size:clamp(25px,4vw,37px);line-height:1.13;letter-spacing:-1.1px;margin:10px 0}.hero p{margin:0;color:#c6d4e0;font-size:14px;max-width:650px;line-height:1.55}.hero-amount{font-weight:900;font-size:33px;white-space:nowrap}.hero-amount small{font-weight:500;font-size:12px;color:#bbcfce;display:block;text-align:right;margin-bottom:4px}.banner{display:flex;align-items:flex-start;gap:10px;background:#fff5dc;color:#684610;padding:13px 15px;border:1px solid #f1d590;border-radius:13px;font-size:13px;line-height:1.5;margin:18px 0}.banner strong{font-weight:800}.tabs{display:flex;gap:5px;overflow:auto;border-bottom:1px solid #e0e5ed;padding-bottom:0;margin-top:4px}.tab{background:transparent;border:none;padding:14px 17px;border-bottom:3px solid transparent;color:#526078;font-weight:700;font-size:13px;white-space:nowrap}.tab.active{color:#123b2a;border-color:#7bc12e}.panel{display:none;padding-top:19px;padding-bottom:55px}.panel.active{display:block}.layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:18px}.card{border:1px solid #e2e8ef;background:white;border-radius:18px;padding:20px;box-shadow:0 7px 25px rgba(16,31,48,.035);min-width:0}.card h2{font-size:18px;letter-spacing:-.5px;margin:0}.card h3{font-size:15px;letter-spacing:-.2px;margin:0}.muted{color:#708093}.small{font-size:12px}.card-head{display:flex;align-items:start;justify-content:space-between;gap:10px;margin-bottom:16px}.pill{border-radius:99px;padding:5px 9px;font-size:11px;font-weight:800;white-space:nowrap}.pill.dark{background:#e8f1e2;color:#326a2a}.pill.demo{background:#fff1da;color:#92631e}.pill.manual{background:#ddf5ed;color:#197556}.pill.neutral{background:#edf1f7;color:#596a81}.search{height:43px;width:100%;border:1px solid #d8e0e9;border-radius:11px;padding:0 12px;outline:none;background:white;color:#132238}.search:focus,.form input:focus,.form select:focus{border-color:#74b741;box-shadow:0 0 0 3px #bbee8744}.catalog{margin-top:10px;max-height:610px;overflow:auto;padding-right:4px}.item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:12px;border-bottom:1px solid #edf0f5}.item:last-child{border:0}.item-name{font-size:13px;font-weight:750}.item-meta{font-size:11px;color:#8190a2;margin-top:4px}.stepper{display:flex;align-items:center;gap:8px;flex-shrink:0}.stepper button{border:1px solid #dae4e9;background:#fff;color:#263f34;border-radius:9px;width:30px;height:30px;font-size:20px;line-height:1}.stepper button:hover{background:#eef7e7}.qty{min-width:24px;text-align:center;font-size:13px;font-weight:750}.results{display:flex;flex-direction:column;gap:9px}.result{padding:14px;border:1px solid #e7edf2;border-radius:13px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.result.best{background:#f3fbec;border-color:#a9d781}.store-name{font-weight:800;font-size:15px}.store-sub{font-size:11px;color:#718093;margin-top:5px;line-height:1.5}.price{font-size:22px;font-weight:900;white-space:nowrap;letter-spacing:-.7px}.discount{font-size:12px;font-weight:750;color:#268145;margin-top:3px;text-align:right}.missing{color:#97611e;font-size:12px;font-weight:700}.detail{font-size:12px;color:#55677e;margin-top:6px}.summary{background:#10233c;color:#fff;border-radius:15px;padding:17px;margin-bottom:13px}.summary-row{display:flex;align-items:center;justify-content:space-between;gap:15px}.summary b{font-size:29px;letter-spacing:-.6px}.summary small{color:#c5d3e2}.summary .save{color:#d0f39b}.info{border-top:1px solid #e7eaf0;padding:14px 0 0;font-size:12px;color:#657387;line-height:1.55;margin-top:15px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.metric{border:1px solid #e1e8ef;border-radius:15px;padding:17px;background:white}.metric-label{font-size:12px;color:#697a8c}.metric-value{font-size:24px;font-weight:900;margin:6px 0}.metric-foot{font-size:11px;color:#8794a5}.form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.form label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:12px;color:#3f5163}.form input,.form select{width:100%;border:1px solid #d9e1e9;border-radius:10px;padding:11px 10px;min-height:42px;background:#fff;color:#182437;outline:none}.form .wide{grid-column:span 2}.form .whole{grid-column:1/-1}.btn{background:#b9ed69;color:#1a321c;border:1px solid #addf60;border-radius:11px;padding:11px 15px;font-weight:850;font-size:13px;display:inline-flex;gap:7px;align-items:center;justify-content:center;min-height:41px}.btn:hover{background:#a9da5c}.btn.secondary{color:#24364f;background:white;border-color:#d5dee9}.btn.danger{background:#fff2f0;color:#bd4235;border-color:#f4d0c9}.btn.ghost{background:transparent;border-color:transparent;color:#49627e}.actions{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.coupon{display:flex;justify-content:space-between;gap:12px;align-items:start;padding:15px 0;border-bottom:1px solid #e7edf3}.coupon:last-child{border-bottom:0}.coupon-title{font-size:15px;font-weight:800}.coupon-info{color:#708195;font-size:12px;line-height:1.55;margin-top:6px}.coupon input[type=checkbox]{accent-color:#76b52c;width:18px;height:18px}.table-wrap{overflow:auto;max-width:100%}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:12px}th{text-align:left;color:#6c7c90;font-weight:750;background:#f5f8fa;padding:12px;border-bottom:1px solid #e4e9f0;position:sticky;top:0}td{padding:11px 12px;border-bottom:1px solid #edf0f4}td:first-child{font-weight:750;min-width:210px}.pricefield{width:78px;max-width:78px;border-radius:8px;border:1px solid #d6dfe8;background:#fff;padding:8px 6px;text-align:right}.pricefield.demo{background:#fffaf1}.pricefield.manual{background:#f3fff9}.subnote{display:block;color:#8490a0;font-weight:500;font-size:10px;margin-top:4px}.section-space{margin-top:15px}.empty{padding:25px;text-align:center;color:#7b8998;font-size:13px}.copy{margin-top:5px;font-size:13px;line-height:1.7;color:#4b5c70}.copy h3{margin-bottom:5px;color:#15273c}.callout{background:#eef5fb;border-left:3px solid #8aa9d1;border-radius:8px;padding:12px 13px;color:#31536f;font-size:12px;line-height:1.55}.footer{padding:20px 0 35px;font-size:12px;color:#8190a0;border-top:1px solid #e0e6ed}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}@media(max-width:780px){.hero-flex{align-items:flex-start;flex-direction:column;gap:14px}.hero-amount small{text-align:left}.layout{grid-template-columns:1fr}.grid-3{grid-template-columns:1fr 1fr}.form{grid-template-columns:1fr 1fr}.card{padding:15px}.container{padding:0 12px}.head{min-height:70px}.brand{font-size:20px}.place{font-size:11px;padding:7px 9px}.result{padding:11px}.price{font-size:20px}}@media(max-width:450px){.grid-3{grid-template-columns:1fr}.form{grid-template-columns:1fr}.form .wide{grid-column:auto}.tabs .tab{padding:13px 13px}.item-name{font-size:12px}}
+
+/* CompraSmart 1.0: scanner de cupones basado en OCR local */
+.scan-card{border:1px solid #cfe2c7;background:linear-gradient(145deg,#f4faef,#fff);border-radius:16px;padding:14px;margin-bottom:16px}
+.scan-top{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap}
+.scan-title{font-size:15px;font-weight:850;color:#214d31;margin:0}
+.scan-small{font-size:12px;line-height:1.55;color:#506979;margin:7px 0 10px}
+.scan-buttons{display:flex;gap:8px;flex-wrap:wrap}.scan-buttons .btn{flex:1;min-width:112px}
+.scan-status{color:#41586b;font-size:12px;line-height:1.5;min-height:16px;margin:10px 0 0}
+.scan-status.error{color:#a6372b}.scan-status.ok{color:#21784a}
+.scan-progress{width:100%;height:7px;border:0;border-radius:9px;accent-color:#77b446;margin-top:7px}
+.scan-preview{display:block;width:100%;max-height:245px;object-fit:contain;background:#f1f4f7;border-radius:10px;border:1px solid #dbe4ed;margin-top:10px}
+.scan-editor{display:grid;gap:7px;margin-top:12px}.scan-editor label{font-size:12px;font-weight:750;color:#3e5364}
+.scan-editor textarea,.coupon-conditions{width:100%;min-height:94px;resize:vertical;font:inherit;font-size:13px;line-height:1.55;background:#fff;border:1px solid #d7e2ec;border-radius:10px;padding:10px;color:#26384c}
+.scan-editor textarea{min-height:115px}.scan-help{font-size:11px;color:#6b7e90;line-height:1.5}
+.scan-chip{display:inline-block;font-size:11px;background:#e4f2dd;color:#315c2f;border-radius:9px;padding:4px 8px;margin-right:5px}
+.scan-warnings{padding:9px 10px;background:#fff8e9;border:1px solid #efd6a5;border-radius:10px;color:#785722;font-size:12px;line-height:1.6;margin-top:10px}
+.scan-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.scan-actions .btn{flex:1;min-width:120px}
+.scan-badges{font-size:11px;color:#526b60;line-height:1.5;margin-top:9px}
+@media(max-width:450px){.scan-card{padding:12px}.scan-buttons .btn{min-width:0;font-size:12px}.scan-actions .btn{min-width:90px}.scan-preview{max-height:190px}}
+</style>
+<meta content="yes" name="apple-mobile-web-app-capable"/><meta content="default" name="apple-mobile-web-app-status-bar-style"/><meta content="Comparador familiar de la cesta de la compra y cupones en supermercados de Madrid." name="description"/><link href="./manifest.webmanifest" rel="manifest"/><link href="./icon-192.png" rel="icon" type="image/png"/><link href="./icon-192.png" rel="apple-touch-icon"/><style>
+/* CompraSmart 0.7: mobile first usability layer */
+:root{--ink:#10273c;--green:#a8dc58;--line:#e3eaf0;--muted:#687e90}
+html{scroll-behavior:smooth}body{overflow-x:hidden}button,select,input{touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #76b947;outline-offset:2px}
+.top{position:sticky;top:0;z-index:12;box-shadow:0 2px 12px #0a182b14}.head{min-height:65px}.brandicon{height:37px;width:37px;border-radius:12px}.brand{font-size:20px}.brand small{font-size:10px}.settings-trigger{display:none;border:1px solid #3b5066;background:#203c53;color:#fff;font-size:21px;border-radius:12px;width:42px;height:42px;align-items:center;justify-content:center}.hero{padding:18px 0 21px}.hero h1{margin:8px 0;font-size:30px;line-height:1.15}.hero p{font-size:13px}.hero-amount{font-size:26px}.notice-slim{margin:12px 0;line-height:1.45}.section-topline{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin:8px 0 16px}.section-topline h2{font-size:21px;letter-spacing:-.7px;margin:0;width:100%}.section-topline p{font-size:13px;color:#687e90;margin:0;flex:1 1 180px}.top-cta{margin-left:auto}.comparison-panel>.card{max-width:none}.comparison-panel>.card+.card{margin-top:15px}.basket-panel>.card{max-width:950px}.basket-toolbar{margin:0 0 12px}.toggle-compact{font-size:13px;font-weight:700;border:1px solid #d7e3df;border-radius:99px;background:white;color:#486273;padding:10px 14px;min-height:44px}.toggle-compact[aria-pressed='true']{background:#e5f4d6;color:#285525;border-color:#b4d8a1}.basket-go{width:100%;max-width:950px;display:flex;margin:12px 0 0;min-height:48px}.mobile-price-editor{display:none}.bottom-nav{display:none}.result{align-items:center}.result.best{border-width:2px}.result .store-name{letter-spacing:-.2px}.card .info{overflow-wrap:anywhere}.btn{min-height:44px}.pricefield{font-size:16px}
+@media(min-width:781px){.comparison-panel>.card{max-width:1100px}.basket-panel .catalog{max-height:620px}.bottom-nav{display:none!important}}
+@media(max-width:780px){
+ html{scroll-padding-top:73px}.top{position:sticky;top:0}.head{min-height:61px;gap:9px}.place{margin-left:auto}.settings-trigger{display:flex;flex-shrink:0}.brand{font-size:18px;gap:7px}.brand small{font-size:9px;letter-spacing:.15px}.brandicon{height:36px;width:36px;font-size:20px}.hero{padding:12px 0 13px}.hero-flex{flex-direction:row;align-items:center;gap:12px}.hero h1{font-size:22px;letter-spacing:-.6px;margin:4px 0}.hero p{display:none}.hero .eyebrow{font-size:9px;letter-spacing:.9px}.hero-amount{font-size:23px;text-align:right}.hero-amount small{font-size:10px;text-align:right}.banner.notice-slim{font-size:12px;padding:10px 12px;margin:10px 0 12px;border-radius:12px}.banner.notice-slim>span{font-size:16px!important}.container{padding:0 13px}.tabs{display:none}.panel{padding-top:6px;padding-bottom:94px;min-height:60vh}.section-topline{margin:9px 0 13px}.section-topline h2{font-size:20px}.section-topline p{font-size:12px}.top-cta{width:100%;margin-top:6px;min-height:44px}
+ .card{border-radius:17px;padding:15px}.card h2{font-size:17px}.card-head{margin-bottom:12px}.catalog{max-height:none}.item{padding:14px 0}.item-name{font-size:14px}.item-meta{font-size:12px}.stepper{gap:9px}.stepper button{width:44px;height:44px;font-size:23px;border-radius:13px}.stepper .qty{font-size:16px;min-width:18px}.search{min-height:48px;font-size:16px}.result{padding:14px 12px}.store-name{font-size:16px}.store-sub,.detail{font-size:12px}.price{font-size:22px}.bottom-nav{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:50;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;padding:6px 6px max(8px,env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e1e8ed;box-shadow:0 -8px 30px #0d20321c}.mobile-tab{border:none;background:transparent;color:#778696;padding:7px 2px 5px;min-height:59px;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:11px;font-weight:800}.mobile-tab .mobile-ico{font-size:23px;line-height:22px;font-weight:700}.mobile-tab.active{background:#e9f7da;color:#264d26}.mobile-price-editor{display:block}.desktop-prices{display:none}.mobile-price-editor #mobileStore{margin-bottom:11px;background:#f8fafb}.mobile-price-editor #mobilePriceSearch{margin-bottom:9px}.store-picker-label{display:block;font-size:12px;font-weight:800;color:#385062;margin-bottom:6px}.mobile-price-list{display:flex;flex-direction:column;gap:0}.mobile-price-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #e8edf1}.mobile-price-row:last-child{border-bottom:0}.mobile-price-description{min-width:0;flex:1}.mobile-price-description b{display:block;font-size:14px;line-height:1.2}.mobile-price-description small{display:block;color:#79899a;font-size:11px;margin-top:5px}.mobile-price-input-wrap{flex:0 0 115px;display:flex;align-items:center;gap:4px;border:1px solid #d5e2e5;border-radius:12px;padding:0 10px;background:white;min-height:46px}.mobile-price-input-wrap:focus-within{border-color:#7bb83e;box-shadow:0 0 0 3px #a2d97244}.mobile-price-input-wrap input{border:0;outline:0;box-shadow:none;width:100%;min-width:0;min-height:42px;text-align:right;font-size:16px;background:transparent;color:#142137}.mobile-price-input-wrap span{font-weight:750;color:#586d7b}.mobile-price-row.demo .mobile-price-input-wrap{background:#fff8e6}.mobile-price-row.manual .mobile-price-input-wrap{background:#effdf2}.grid-3{grid-template-columns:1fr 1fr;gap:8px}.metric{padding:12px}.metric-value{font-size:21px}.coupon{padding:15px 0}.coupon .btn{padding:6px 10px}.form{grid-template-columns:1fr 1fr}.form label{font-size:13px}.form input,.form select{font-size:16px;min-height:46px}.form .whole .btn{width:100%}#couponForm.form{grid-template-columns:1fr 1fr!important}#couponForm.form>.wide{grid-column:1/-1}.actions>.btn{flex:1}.actions>label.btn{flex:1}.footer{padding-bottom:112px}.card .table-wrap{max-width:100%}.summary b{font-size:27px}
+}
+@media(max-width:390px){.place{display:none}.grid-3{grid-template-columns:1fr}.hero-amount{font-size:21px}.hero h1{font-size:21px}.mobile-price-input-wrap{flex-basis:105px}#couponForm.form{grid-template-columns:1fr!important}#couponForm.form>.wide{grid-column:auto}.summary b{font-size:24px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style><style>
+.freshness-selector{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:12px;color:#526278;font-weight:750;margin-top:12px}
+.freshness-selector select{border:1px solid #d6e1e8;border-radius:9px;padding:8px 9px;background:white;color:#253950;max-width:240px;min-height:40px;font-size:13px}
+.coverage-wrap{margin-top:10px}.coverage-bar{height:6px;background:#e7edf2;border-radius:7px;overflow:hidden;max-width:235px}.coverage-bar>i{display:block;height:100%;background:#73b948;border-radius:7px}
+.coverage-label{font-size:11px;color:#667d8c;margin-top:5px}
+@media(max-width:600px){.freshness-selector{align-items:flex-start;flex-direction:column}.coverage-bar{max-width:175px}}
+</style><style>.basket-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}.basket-actions>.btn{flex:1;min-width:130px}.coupon button{min-height:42px}button[hidden]{display:none!important}</style><style>
+/* CompraSmart 0.7 · dos modos de compra */
+.mode-picker{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0 8px}
+.mode-button{background:#f5f8fa;border:1px solid #dce5eb;border-radius:13px;min-height:58px;padding:11px 8px;text-align:center;font-size:13px;font-weight:800;color:#4a5a6a;cursor:pointer}
+.mode-button[aria-pressed="true"]{color:#173c28;background:#ecf8df;border:2px solid #87c64c}
+.mode-description{color:#65788a;font-size:12px;line-height:1.5;margin:7px 0 11px}
+.split-panel{border:1px solid #e0e9f0;background:#fbfcfd;padding:13px;border-radius:14px;margin-bottom:15px}
+.split-settings{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:10px 0 15px}
+.split-settings label{font-size:12px;font-weight:750;color:#435568;display:flex;flex-direction:column;gap:6px}
+.split-settings input,.split-settings select{width:100%;min-height:46px;border:1px solid #d4e0e8;border-radius:10px;padding:10px 11px;background:white;font-size:16px;color:#26364a}
+.split-settings .whole{grid-column:1/-1}
+.split-result{line-height:1.5}
+.split-recommendation{border:1px solid #b5daa1;background:#f2faeb;border-radius:14px;padding:15px}
+.split-recommendation .money{font-size:26px;font-weight:900;letter-spacing:-.7px;color:#153e2c}
+.split-store{background:#fff;border:1px solid #deeadc;border-radius:12px;padding:12px;margin-top:11px}
+.split-store-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.split-store-head b{font-size:15px}.split-store-head strong{font-size:17px;white-space:nowrap}
+.split-list{padding:0;margin:7px 0 0;list-style:none;font-size:12px;color:#536376}
+.split-list li{padding:5px 0;border-bottom:1px solid #eef2f0}.split-list li:last-child{border:0}
+.split-meta{font-size:12px;color:#4d6855;margin-top:8px}
+.split-empty{background:#f1f4f8;border-radius:11px;padding:13px;font-size:13px;color:#526578}
+.split-disclaimer{font-size:11px;color:#718295;margin-top:10px;line-height:1.5}
+.split-preference{background:#e9f4e6;color:#345b32;border:1px solid #c9e5c5;border-radius:11px;padding:9px 11px;font-size:12px;line-height:1.5;margin:10px 0}
+.split-share{margin-top:12px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.split-share button{width:100%;min-height:46px;border-radius:10px;background:#153b36;border:1px solid #153b36;color:white;font-size:13px;font-weight:800}
+.split-share-status{font-size:11px;color:#486a5e;min-height:15px}
+.split-unverified{border:1px solid #e5d5b9;background:#fff8ec;border-radius:14px;padding:14px;color:#624c2d}
+.split-unverified .split-store{border-color:#e9dbc7}
+@media(min-width:700px){.split-share button{width:auto;min-width:240px}}
+@media(max-width:400px){.mode-button{font-size:12px;padding:9px 5px}.split-settings{gap:9px}}
+
+.benefit-card{margin:0 0 14px;border-color:#d6e9bf;background:linear-gradient(130deg,#fff,#f5ffed)}
+.benefit-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.benefit-head h2{margin-top:5px}
+.benefit-toggle{display:flex;align-items:center;gap:7px;border:1px solid #d9e8c9;border-radius:12px;padding:9px 11px;background:white;flex-shrink:0;font-size:12px;font-weight:800;color:#2c5833;min-height:45px}
+.benefit-toggle input{width:20px;height:20px;accent-color:#71b83e}
+.benefit-equation{background:#e3f5d7;padding:12px;border-radius:11px;margin-top:13px;font-size:12px;color:#2b5930;line-height:1.65}
+@media(max-width:440px){.benefit-head{align-items:flex-start;flex-direction:column}.benefit-toggle{align-self:flex-start}}
+
+/* CompraSmart 1.0 — cupones por SKU y validez */
+#couponForm textarea{width:100%;min-height:88px;resize:vertical;border:1px solid #d9e1e9;border-radius:11px;padding:12px;font:inherit;font-size:15px;line-height:1.45;background:white;color:#182437}
+#couponForm textarea:focus{border-color:#78b843;outline:3px solid #bbee8744}
+.coupon-targets{border:1px solid #dce7dc;background:#f8fbf7;border-radius:13px;padding:12px;grid-column:1/-1}
+.coupon-targets[hidden]{display:none}
+.coupon-targets h3{margin:0 0 8px;font-size:14px}
+.coupon-picker{max-height:185px;overflow:auto;display:grid;grid-template-columns:1fr 1fr;gap:5px 12px;padding:5px 0}
+#couponForm .coupon-picker label{display:flex;flex-direction:row;align-items:center;gap:8px;font-size:12px;line-height:1.4;font-weight:600;min-width:0;cursor:pointer;padding:4px 0}
+.coupon-picker input{width:18px!important;height:18px!important;min-height:18px!important;flex:0 0 18px;accent-color:#6ba532}
+.coupon-picker span{overflow-wrap:anywhere}
+.coupon-hint{color:#627a87;font-size:12px;line-height:1.5;margin:7px 0}
+.sku-map{max-height:360px;overflow:auto}
+.sku-map-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(105px,40%);gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #e8edf1}
+.sku-map-row:last-child{border:0}
+.sku-map-row b{font-size:13px;display:block}.sku-map-row small{display:block;font-size:11px;color:#738395;margin-top:3px}
+.sku-map-row input{width:100%;max-width:100%;min-height:44px;padding:8px;border:1px solid #d5e0e7;border-radius:10px;font-size:16px;color:#152a3c;background:#fff}
+#couponForm .coupon-info-inline{font-size:12px;color:#718294;line-height:1.5}
+@media(max-width:560px){.coupon-picker{grid-template-columns:1fr}.coupon-targets{padding:11px}}
+</style></head>
+<body>
+<header class="top"><div class="container head"><div class="brand"><div class="brandicon">🛒</div><div>CompraSmart<small>TU COMPRA, EN UN VISTAZO · 0.9</small></div></div><div class="place">📍 Santa Eugenia</div><button aria-label="Abrir ajustes y copias de seguridad" class="settings-trigger" data-tab="datos" type="button">⚙</button></div></header>
+<section class="hero"><div class="container hero-flex"><div><div class="eyebrow">Tu compra, mejor pensada</div><h1>Tu cesta, al mejor precio.</h1><p>Prepara tu compra, calcula el total por supermercado y descubre cuándo se activa un descuento. Tus cambios se guardan en este navegador.</p></div><div class="hero-amount" id="heroMetric"><small>Cesta familiar</small>—</div></div></section>
+<main class="container">
+<div class="banner notice-slim"><span style="font-size:21px">⚠️</span><div><strong>Precios de ejemplo, no reales. </strong>El comparador no los utiliza salvo que actives el modo de simulación. Añade tus precios comprobados.</div></div>
+<nav aria-label="Secciones" class="tabs"><button class="tab active" data-tab="comparar" type="button">⌂  Inicio</button><button class="tab" data-tab="cesta" type="button">▤  Mi cesta</button><button class="tab" data-tab="precios" type="button">€  Precios</button><button class="tab" data-tab="cupones" type="button">♧  Cupones</button><button class="tab" data-tab="mercado" type="button">↻  Fuentes</button><button class="tab" data-tab="datos" type="button">⚙  Ajustes</button></nav>
+<section class="panel basket-panel" id="cesta"><div class="section-topline"><h2>Tu lista de la compra</h2><p>Añade o quita productos con un toque.</p></div><div class="basket-toolbar"><button aria-pressed="false" class="toggle-compact" id="onlyInBasket" type="button">Mostrar solo mi cesta</button></div><div class="card"><div class="card-head"><div><h2>Mi cesta de la compra</h2><div class="muted small" id="countItems"></div></div><span class="pill dark">Editable</span></div><input aria-label="Buscar productos" class="search" id="searchProducts" placeholder="Buscar leche, huevos, arroz..."/><div class="catalog" id="catalog"></div><div class="info">Los productos se comparan por una descripción y formato común. En la versión conectada distinguiremos referencias exactas (EAN) de sustitutos aceptables.</div></div><div class="basket-actions"><button class="btn secondary" id="shareBasket" type="button">Compartir lista ↗</button><button class="btn ghost" id="clearBasket" type="button">Vaciar cesta</button></div><p id="shareStatus" class="small muted" role="status" aria-live="polite"></p><button class="btn basket-go" data-tab="comparar" type="button">Ver comparación de supermercados  →</button></section><section class="panel active comparison-panel" id="comparar"><div class="section-topline"><h2>¿Dónde sale mejor tu compra?</h2><p>Compara el total de la cesta y el efecto de tus cupones.</p><button class="btn secondary top-cta" data-tab="cesta" type="button">Editar mi cesta  ＋</button></div>
+
+<div><div class="card" style="margin-bottom:15px"><div class="card-head"><div><h2>Comparación de supermercados</h2><div class="small muted">Totales estimados de compra en tienda, sin desplazamiento</div><label class="small" style="display:flex;align-items:center;gap:7px;margin-top:10px"><input id="simulatedMode" type="checkbox"/> Permitir precios ficticios (solo para probar)</label><label class="freshness-selector" for="freshDays">Antigüedad máxima de precios<input class="sr" type="text" aria-hidden="true" tabindex="-1"/><select id="freshDays" aria-label="Antigüedad máxima de los precios aportados"><option value="7">7 días</option><option value="14" selected>14 días (recomendado)</option><option value="30">30 días</option><option value="60">60 días</option><option value="0">Sin límite (menos fiable)</option></select></label></div></div><div id="quickSummary"></div>
+<div class="split-panel" id="splitOptimizer">
+ <h3>¿Cómo prefieres organizar la compra?</h3>
+ <div class="mode-picker" role="group" aria-label="Modo de compra">
+   <button class="mode-button" id="modeSingle" type="button" aria-pressed="false">🛍️ Todo en una tienda</button>
+   <button class="mode-button" id="modeSplit" type="button" aria-pressed="true">🛒 Repartir entre 2 tiendas</button>
+ </div>
+ <p class="mode-description" id="modeHelp">Repartimos la cesta entre dos supermercados cuando sea más barata y cumpla al menos una de tus condiciones.</p>
+ <div id="splitOptions">
+  <div class="split-settings">
+   <label>Compra mínima final en cada tienda (€)<input id="splitMinSpend" type="number" inputmode="decimal" step="1" min="0" max="10000" value="30"/></label>
+   <label>Ahorro mínimo frente a una tienda (€)<input id="splitMinSavings" type="number" inputmode="decimal" step="0.5" min="0" max="10000" value="5"/></label>
+   <label class="whole">¿Qué debe cumplirse?<select id="splitRule"><option value="either">Una de las dos: compra mínima O ahorro</option><option value="both">Las dos: compra mínima Y ahorro</option></select></label>
+  </div>
+  <div class="split-result" id="splitResult" aria-live="polite"></div>
+  <p class="split-disclaimer">El cálculo reparte cada referencia completa (no divide sus unidades), incluye el mejor cupón válido para cada tienda y sus artículos elegibles, después el 10 % familiar en las tiendas elegibles, y no incluye desplazamientos. Un ahorro positivo pero inferior a 5 € puede recomendarse si ambas compras alcanzan 30 €; valora si te compensa hacer otra parada. Calcula la mejor combinación exacta hasta 16 referencias flexibles; por encima propone una aproximación.</p>
+ </div>
+</div>
+<div class="results" id="results"></div><div class="info" id="resultFoot"></div></div><div class="card"><h3>Cómo interpretar el resultado</h3><div class="copy">Una tienda solo puede quedar como <strong>la más barata de la cesta completa</strong> si hay precio para todos sus productos. En el modo reparto, también pueden utilizarse tiendas con precios de solo una parte de la cesta, siempre que entre las dos cubran todos los productos. Los cupones se recalculan por separado en cada tienda. En Hipercor, Supercor y Supermercado El Corte Inglés se aplica después el 10 % de empleado cuando está activado.</div></div></div>
+</section>
+<section class="panel" id="cupones"><div class="card benefit-card"><div class="benefit-head"><div><div class="small muted" style="font-weight:750">BENEFICIO FAMILIAR</div><h2>10 % de descuento de empleado</h2><p class="small muted" style="margin:8px 0 0;line-height:1.6">Hipercor · Supercor · Supermercado El Corte Inglés</p></div><label class="benefit-toggle"><input id="employeeBenefitEnabled" type="checkbox" checked aria-label="Activar descuento familiar de empleado del 10 %"><span>Activado</span></label></div><div class="benefit-equation"><strong>1. Precio de productos</strong> → <strong>2. Aplicar cupón</strong> → <strong>3. Descontar 10 % del importe restante</strong></div><p class="small muted" style="margin:12px 0 0;line-height:1.6">Se añade al cupón elegido de cada tienda. El descuento familiar nunca se calcula sobre el importe anterior al cupón. De momento se considera aplicable a todos los productos: revisad excepciones y condiciones al pagar.</p></div><div class="grid-3 section-space" id="couponMetrics"></div><div class="layout section-space"><div class="card"><div class="card-head"><h2>Mis cupones</h2><span class="pill neutral">Personales</span></div><div id="couponsList"></div></div><div class="card"><div class="card-head"><h2 id="couponFormTitle">Crear un cupón</h2></div><div class="scan-card" aria-label="Escanear un cupón">
+  <div class="scan-top"><h3 class="scan-title">📷 Escanear un cupón</h3><span class="pill dark">Nuevo · OCR en español</span></div>
+  <p class="scan-small">Fotografía un cupón o elige una imagen. Detectaremos posibles fechas, descuento, código y referencias de artículos. <strong>Revisa siempre los datos antes de guardar.</strong></p>
+  <div class="scan-buttons"><button type="button" class="btn" id="scanCameraBtn">📷 Hacer foto</button><button type="button" class="btn secondary" id="scanGalleryBtn">▧ Galería</button></div>
+  <input type="file" id="scanCamera" accept="image/*" capture="environment" hidden aria-label="Fotografiar cupón"/>
+  <input type="file" id="scanGallery" accept="image/*" hidden aria-label="Elegir imagen de cupón"/>
+  <img id="scanPreview" class="scan-preview" hidden alt="Vista previa del cupón fotografiado"/>
+  <div class="scan-actions" id="scanImageActions" hidden><button class="btn secondary" type="button" id="scanRotateBtn">↻ Girar foto</button><button class="btn" type="button" id="scanReadBtn">Reconocer texto</button></div>
+  <progress id="scanProgress" class="scan-progress" max="100" value="0" hidden aria-label="Progreso de reconocimiento"></progress>
+  <div id="scanStatus" class="scan-status" role="status" aria-live="polite">El reconocimiento se ejecuta en el navegador. La primera lectura necesita internet para descargar el motor OCR en español.</div>
+  <div id="scanBarcodes" class="scan-warnings" hidden></div>
+  <div class="scan-editor"><label for="scanText">Texto reconocido o pegado manualmente</label><textarea id="scanText" maxlength="12000" placeholder="Aquí aparecerá el texto detectado; también puedes pegar las condiciones del cupón…" spellcheck="false"></textarea>
+  <div class="scan-actions"><button class="btn secondary" type="button" id="scanParseBtn">✨ Interpretar texto</button><button class="btn ghost" type="button" id="scanClearBtn">Borrar lectura</button></div></div>
+  <div id="scanWarnings" class="scan-warnings" hidden></div>
+  <div class="scan-badges">🔒 La foto no se guarda ni se envía a nuestro servidor. Solo se guardarán los datos de la ficha que confirmes. El motor OCR es una biblioteca abierta; se descarga por internet la primera vez.</div>
+</div>
+<form class="form" id="couponForm" style="grid-template-columns:repeat(2,minmax(0,1fr))"><label class="wide">Nombre del descuento<input maxlength="90" name="name" placeholder="Ej. 10 € si gasto 80 €" required=""/></label><label>Supermercado<select id="couponStore" name="store" required=""></select></label><label class="wide">Código del cupón (opcional, distinto del SKU)<input name="promoCode" maxlength="100" placeholder="Ej. AHORRA10" autocomplete="off"/></label><label>Tipo<select name="type"><option value="fixed">Importe fijo (€)</option><option value="percent">Porcentaje (%)</option></select></label><label>Valor<input min="0.01" name="value" placeholder="10" required="" step="0.01" type="number"/></label><label>Compra mínima (€)<input min="0" name="min" required="" step="0.01" type="number" value="0"/></label><label>Válido desde (opcional)<input name="validFrom" type="date"/></label><label>Caduca (opcional)<input name="expires" type="date"/></label><label>Canal<select name="channel"><option value="both">Tienda / online</option><option value="store">Solo tienda</option><option value="online">Solo online</option></select></label><label class="wide">¿A qué productos se aplica?<select name="scope" id="couponScope"><option value="all">A toda la compra</option><option value="selected">Solo artículos concretos</option></select></label><label class="wide">Condición de compra mínima<select name="minBasis"><option value="basket">Sobre el total de la compra en esta tienda</option><option value="eligible">Sobre los productos que entran en el cupón</option></select></label><div class="coupon-targets" id="couponTargets" hidden><h3>Productos incluidos en el cupón</h3><p class="coupon-hint">Marca productos o indica referencias propias del supermercado. Si utilizas ambos, entrarán los productos marcados y los que tengan un código coincidente.</p><div class="coupon-picker" id="couponProductPicker"></div><label style="display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:750;margin-top:9px">Códigos de artículo del supermercado (opcional)<textarea id="couponSkuCodes" name="codes" placeholder="Ej.: 0001234567&#10;ART-34567&#10;Otra referencia" spellcheck="false"></textarea></label><p class="coupon-hint">Un código por línea, coma o punto y coma. Se conserva como texto (también los ceros iniciales). Para que cuente en la cesta, hay que vincularlo en «Referencias por supermercado».</p></div><label class="whole">Condiciones y exclusiones (revisar)<textarea class="coupon-conditions" name="conditions" maxlength="3000" placeholder="Ej.: Solo para artículos seleccionados, un uso por cliente, no acumulable con otras ofertas…"></textarea></label><label class="whole" id="scanReviewWrap" hidden style="display:none;flex-direction:row;align-items:flex-start;gap:8px;line-height:1.5"><input type="checkbox" id="scanReviewed" style="width:19px;height:19px;flex-shrink:0"><span>He revisado y confirmado las fechas, el importe, la tienda y las exclusiones extraídas de la imagen.</span></label><div class="whole" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" id="saveCouponBtn" type="submit">＋ Guardar cupón</button><button class="btn ghost" id="cancelCouponEdit" type="button" hidden>Cancelar edición</button></div></form><div class="info">Los cupones no se verifican automáticamente con tu cuenta de cliente. Revisa fechas, excepciones y si son acumulables. Ahora puedes limitar un cupón por productos o códigos exactos, definir desde cuándo es válido y su fecha de caducidad. Se elige el cupón más favorable por tienda y después se añade el 10 % de empleado en las tres cadenas seleccionadas. No combina varios cupones entre sí.</div></div></div><div class="card section-space"><div class="card-head"><div><h2>Referencias por supermercado</h2><p class="small muted" style="line-height:1.55;margin:7px 0 0">Vincula el código o SKU exacto de cada supermercado con los productos del catálogo. Ejemplo: el código de una leche en Hipercor puede ser distinto al de BM. No inventaremos coincidencias.</p></div></div><label class="store-picker-label" for="skuStore">Supermercado</label><select class="search" id="skuStore" style="margin-bottom:10px"></select><label style="display:flex;align-items:center;gap:7px;font-size:13px"><input type="checkbox" id="skuOnlyBasket" checked> Mostrar solo productos de mi cesta</label><div class="sku-map" id="skuRows"></div><p id="skuStatus" class="small muted" role="status" aria-live="polite"></p></div></section>
+<section class="panel" id="precios"><div class="section-topline"><h2>Precios por supermercado</h2><p>Elige una tienda y anota los precios comprobados.</p></div><div class="card mobile-price-editor" id="mobilePriceEditor"><label class="store-picker-label" for="mobileStore">Supermercado</label><select aria-label="Seleccionar supermercado" class="search" id="mobileStore"></select><button aria-pressed="false" class="toggle-compact" id="onlyBasketPrices" type="button" style="margin-bottom:12px">Mostrar solo productos de mi cesta</button><input aria-label="Buscar producto para editar su precio" class="search" id="mobilePriceSearch" placeholder="Buscar un producto…" type="search"/><div class="mobile-price-list" id="mobilePriceRows"></div><p class="small muted">Solo los precios introducidos o importados y dentro del periodo seleccionado participan en la comparación real. Comprueba siempre el producto y su formato.</p></div><div class="card desktop-prices"><div class="card-head"><div><h2>Tabla de precios</h2><div class="small muted">Edita un precio y se recalculará la cesta automáticamente. Las celdas beige son datos ficticios; las verdes son datos introducidos.</div></div></div><input class="search" id="searchPrices" placeholder="Filtrar productos por nombre..." style="margin-bottom:12px"/><div class="table-wrap" style="max-height:600px;overflow:auto"><table><thead id="priceHead"></thead><tbody id="priceBody"></tbody></table></div><div class="info">Al editar un precio, su origen pasa a «Manual» y la fecha de registro queda guardada. Para precios de productos por peso, usa el mismo formato indicado en la primera columna.</div></div><div class="card section-space"><h2 style="margin-bottom:15px">Añadir producto al catálogo</h2><form class="form" id="productForm"><label class="wide">Producto<input name="name" placeholder="Ej. Bebida de avena" required=""/></label><label>Formato comparable<input name="unit" placeholder="Ej. 1 L" required=""/></label><label>Categoría<select name="category"><option>Alimentación</option><option>Frescos</option><option>Hogar</option><option>Higiene</option></select></label><div class="whole"><button class="btn" type="submit">＋ Añadir producto</button></div></form></div></section>
+<section class="panel" id="mercado">
+<div class="banner"><span>🔎</span><div><strong>Fuentes preparadas, todavía no sincronizadas.</strong> Esta pestaña necesita un servidor independiente de conectores; GitHub Pages por sí solo no ofrece ese servicio. Los precios de tuTándem son medianas de productos equivalentes (€/kg, €/L o unidad), no el precio de un paquete exacto. Superfudis responde por productos concretos, pero necesita revisar sus coincidencias y disponibilidad.</div></div>
+<div class="layout">
+<div class="card"><div class="card-head"><div><h2>Termómetro de precios · tuTándem</h2><div class="small muted">Datos abiertos CC BY 4.0 · <a href="https://tutandem.es/datos" rel="noopener noreferrer" target="_blank">Ver fuente</a></div></div><span class="pill manual">Precios de referencia</span></div><p class="copy">Consulta los precios de referencia de Mercadona y DIA. Si faltan fechas o tiendas, se muestra lo que publique la fuente; nunca se completan huecos con estimaciones.</p><div class="actions"><button class="btn" id="refreshMarket">↻ Consultar datos abiertos</button></div><div aria-live="polite" class="copy" id="marketStatus"></div><div class="table-wrap" style="max-height:430px;overflow:auto"><table><thead id="marketHead"></thead><tbody id="marketRows"></tbody></table></div><p class="small muted">El precio mostrado es la mediana de un conjunto de productos comparables, no la cantidad total de tu cesta ni un precio local confirmado en Madrid.</p></div>
+<div class="card"><div class="card-head"><div><h2>Productos concretos · Superfudis</h2><div class="small muted">API pública para consumidores · <a href="https://superfudis.com/developers/" rel="noopener noreferrer" target="_blank">Documentación</a></div></div><span class="pill demo">Experimental</span></div><p class="copy">Consulta hasta 10 referencias seleccionadas de tu cesta en Mercadona, Carrefour y DIA. No se aplicarán precios automáticamente hasta validar la correspondencia entre productos y formatos.</p><div class="actions"><button class="btn" id="querySuper">↻ Consultar cesta en Superfudis</button><button class="btn secondary" disabled="" id="downloadSuper">↓ Guardar respuesta JSON</button></div><div aria-live="polite" class="copy" id="superStatus"></div><details id="superDetails" style="display:none"><summary>Ver respuesta original del proveedor</summary><pre id="superRaw" style="max-height:420px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;background:#f4f7fa;padding:12px;border-radius:12px;font-size:11px"></pre></details><div class="info">Límites: 10 productos por petición y 3 peticiones por minuto/IP. Si la cesta contiene más de 10 referencias, se consultan las 10 primeras; no representa el coste total. En caso de error, mantendremos intactos los precios anteriores.</div></div>
+</div></section>
+<section class="panel" id="datos"><div class="layout"><div class="card"><h2>Importar precios propios</h2><p class="copy">Usa un CSV separado por <strong>punto y coma</strong> con columnas <code>producto_id;supermercado;precio;fecha;fuente;url</code>. Los códigos de producto están en la plantilla. Si falta un precio, déjalo vacío o sin registrar: la app no inventará un importe.</p><div class="actions"><button class="btn secondary" id="csvTemplate">↓ Descargar plantilla CSV</button><label class="btn" for="csvFile" style="cursor:pointer">↑ Importar CSV<input accept=".csv,text/csv" class="sr" id="csvFile" type="file"/></label></div><div class="small" id="importStatus" role="status" style="margin-top:12px"></div><div class="info">Los datos importados se consideran «aportados», no verificados automáticamente. Los precios pueden variar por código postal, tienda física, stock y promociones personales.</div></div><div class="card"><h2>Instalación en Android</h2><p class="copy">Esta app es independiente y funciona sin usar Lovable. Para instalarla desde Chrome necesita abrirse en una dirección HTTPS; cuando esté disponible aparecerá la opción de instalación. Abrir el archivo HTML permite probarla, pero no instalarla como PWA.</p><div class="actions"><button class="btn" type="button" id="installApp" hidden>Instalar CompraSmart</button></div><p class="small muted" id="installStatus" role="status">La instalación depende del navegador y de disponer de HTTPS. Tus datos se guardan en el navegador de este dispositivo. Exporta copias periódicamente.</p></div><div class="card"><h2>Datos de la familia</h2><p class="copy">Puedes guardar una copia para pasarla a otro dispositivo. En este prototipo no hay cuentas ni sincronización en la nube; el guardado es local mediante el navegador.</p><div class="actions"><button class="btn secondary" id="exportJson">↓ Guardar copia JSON</button><label class="btn secondary" for="jsonFile" style="cursor:pointer">↑ Restaurar copia<input accept="application/json,.json" class="sr" id="jsonFile" type="file"/></label><button class="btn danger" id="resetDemo">↺ Restaurar demostración</button></div><div class="info">No introduzcas contraseñas de supermercados, números completos de tarjeta de fidelización ni datos de pago. Ninguna información sale de este archivo por sí sola.</div></div></div><div class="card section-space"><h2>¿Qué funciona ya y qué falta?</h2><div class="grid-3 section-space"><div class="metric"><div class="pill dark" style="display:inline-block">Disponible</div><h3 style="margin-top:9px">Cesta y comparativa</h3><p class="copy">Cantidades, totales, disponibilidad de precios, ranking de cestas completas y recálculo inmediato.</p></div><div class="metric"><div class="pill dark" style="display:inline-block">Disponible</div><h3 style="margin-top:9px">Cupones personalizados</h3><p class="copy">Importe mínimo, fijo o porcentaje, caducidad, activación y selección del mayor descuento aplicable.</p></div><div class="metric"><div class="pill demo" style="display:inline-block">Próxima fase</div><h3 style="margin-top:9px">Precios conectados</h3><p class="copy">Backend para consulta mediante APIs autorizadas, normalización por tamaño/EAN y actualización con fecha y fuente.</p></div></div></div></section>
+</main><footer class="container footer">CompraSmart 1.0 · Datos guardados en tu navegador · No se muestran precios reales sin verificar.</footer>
+<nav aria-label="Navegación principal móvil" class="bottom-nav"><button aria-label="Inicio" class="mobile-tab active" data-tab="comparar" type="button"><span aria-hidden="true" class="mobile-ico">⌂</span><span>Inicio</span></button><button aria-label="Cesta" class="mobile-tab" data-tab="cesta" type="button"><span aria-hidden="true" class="mobile-ico">▤</span><span>Cesta</span></button><button aria-label="Precios" class="mobile-tab" data-tab="precios" type="button"><span aria-hidden="true" class="mobile-ico">€</span><span>Precios</span></button><button aria-label="Cupones" class="mobile-tab" data-tab="cupones" type="button"><span aria-hidden="true" class="mobile-ico">♧</span><span>Cupones</span></button><button aria-label="Fuentes" class="mobile-tab" data-tab="mercado" type="button"><span aria-hidden="true" class="mobile-ico">↻</span><span>Fuentes</span></button></nav><script>
+(()=>{'use strict';
+const STORES=['Mercadona','Carrefour','DIA','Ahorramás','BM','Alcampo','Hipercor','Supercor','Supermercado El Corte Inglés'];
+const EMPLOYEE_STORES=['Hipercor','Supercor','Supermercado El Corte Inglés'];
+const EMPLOYEE_RATE=10;
+const KEY='comprasmart-prototipo-01';
+const EUR = n => Number(n||0).toLocaleString('es-ES',{style:'currency',currency:'EUR'});
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const day = () => new Date().toLocaleDateString('sv-SE');
+const round = n => Math.round((Number(n)+Number.EPSILON)*100)/100;
+const seed = ()=>{
+const source=[
+['p01','Leche sin lactosa','1 L','Alimentación',1.15,6],
+['p02','Huevos tamaño M','12 unidades','Frescos',2.75,2],
+['p03','Arroz redondo','1 kg','Alimentación',1.49,2],
+['p04','Macarrones','500 g','Alimentación',1.07,3],
+['p05','Pechuga de pollo','1 kg','Frescos',8.35,2],
+['p06','Plátanos','1 kg','Frescos',1.92,2],
+['p07','Yogur natural sin lactosa','Pack de 4','Frescos',2.29,3],
+['p08','Aceite de oliva virgen extra','1 L','Alimentación',5.99,2],
+['p09','Café molido','250 g','Alimentación',3.55,2],
+['p10','Pan de molde integral','450 g','Alimentación',1.79,2],
+['p11','Detergente ropa','35 dosis','Hogar',6.85,1],
+['p12','Papel higiénico','12 rollos','Hogar',5.19,1],
+['p13','Tomate triturado','400 g','Alimentación',.89,3],
+['p14','Queso rallado sin lactosa','200 g','Frescos',2.35,2],
+['p15','Atún al natural','Pack de 3 latas','Alimentación',2.59,2],
+['p16','Gel de ducha','750 ml','Higiene',2.65,1]
+];
+const factors={'Mercadona':1,'Carrefour':1.065,'DIA':.985,'Ahorramás':1.025,'BM':1.10,'Alcampo':1.01,'Hipercor':1.115,'Supercor':1.18,'Supermercado El Corte Inglés':1.15};
+let products=source.map(p=>({id:p[0],name:p[1],unit:p[2],category:p[3]}));
+let basket=Object.fromEntries(source.map(p=>[p[0],p[5]]));
+let prices={};
+source.forEach((p,i)=>{prices[p[0]]={};STORES.forEach((st,j)=>{if((st==='DIA'&&p[0]==='p16')||(st==='Ahorramás'&&p[0]==='p14'))return; const shift=((i*7+j*3)%9-4)*.011;prices[p[0]][st]={value:round(Math.max(.2,p[4]*(factors[st]+shift))),kind:'demo',date:'',source:'Simulación ficticia',url:''};});});
+const coupons=[{id:'c-bm',name:'10 € al llegar a 80 € (informado por el usuario)',store:'BM',type:'fixed',value:10,min:80,expires:'',channel:'both',active:true}];
+return {products,basket,prices,coupons,storeCodes:{},employeeBenefit:{enabled:true},splitPreferences:{mode:'split',minSpend:30,minSavings:5,rule:'either'}};};
+let state;try{const s=JSON.parse(localStorage.getItem(KEY));state=validState(s)?s:seed();}catch{state=seed();}
+// Preferencia solicitada: repartir entre tiendas, mínimo 30 €/tienda O ahorro de 5 €.
+// Al entrar desde 0.6 se activa una sola vez; cambios posteriores del usuario se respetan.
+const SPLIT_PRESET_KEY='comprasmart-reparto-preset-0.7';
+try{
+ if(localStorage.getItem(SPLIT_PRESET_KEY)!=='applied'){
+  state.splitPreferences={mode:'split',minSpend:30,minSavings:5,rule:'either'};
+  localStorage.setItem(KEY,JSON.stringify(state));
+  localStorage.setItem(SPLIT_PRESET_KEY,'applied');
+ }else if(!state.splitPreferences){state.splitPreferences={mode:'split',minSpend:30,minSavings:5,rule:'either'};}
+}catch{if(!state.splitPreferences)state.splitPreferences={mode:'split',minSpend:30,minSavings:5,rule:'either'};}
+
+let activeTab='comparar';let filterCatalog='';let filterPrices='';let simulatedMode=false;let editingCouponId=null;
+let freshDays=14;try{const v=Number(localStorage.getItem('comprasmart-freshdays'));if([0,7,14,30,60].includes(v)&&localStorage.getItem('comprasmart-freshdays')!==null)freshDays=v;}catch{}
+function isRecent(q){if(q?.kind==='demo')return true;if(!q?.date||!/^\d{4}-\d{2}-\d{2}$/.test(q.date))return false;const d=Date.parse(q.date+'T12:00:00Z');const now=Date.parse(day()+'T12:00:00Z');if(!Number.isFinite(d)||d>now)return false;return freshDays===0||now-d<=freshDays*86400000;}
+function validState(s){return s&&Array.isArray(s.products)&&s.basket&&s.prices&&Array.isArray(s.coupons);}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch{}}
+function selected(){return state.products.filter(p=>Number(state.basket[p.id])>0);}
+function benefitEnabled(){return state.employeeBenefit?.enabled !== false;}
+function employeeBenefitCents(store,subtotalCents,couponCents){
+ if(!benefitEnabled()||!EMPLOYEE_STORES.includes(store))return 0;
+ // Primero el cupón, luego el 10 % del importe que efectivamente queda por pagar.
+ return Math.round(Math.max(0,subtotalCents-couponCents)*EMPLOYEE_RATE/100);
+}
+// Las referencias por supermercado son texto: 00001820 != 1820.
+const normSKU=s=>String(s??'').trim().toUpperCase();
+function parseSkuCodes(v){return [...new Set((Array.isArray(v)?v:String(v||'').split(/[\n,;]+/)).map(normSKU).filter(Boolean))];}
+function couponMatches(c,p,store){
+ if((c.scope||'all')==='all')return true;
+ if(c.scope!=='selected')return false;
+ if(Array.isArray(c.productIds)&&c.productIds.includes(p.id))return true;
+ const sku=normSKU(state.storeCodes?.[p.id]?.[store]);
+ return !!sku&&parseSkuCodes(c.codes).includes(sku);
+}
+function couponEligibleAmounts(store,items,costs,coupons){
+ return coupons.map(c=>items.reduce((sum,p,i)=>sum+(couponMatches(c,p,store)?(costs[i]||0):0),0));
+}
+function evaluate(store){
+ const items=selected();let subtotalCents=0,missing=[],stale=[],demo=0,provided=0;
+ const costs=items.map(p=>{const q=state.prices[p.id]?.[store];if((q?.kind==='demo'&&!simulatedMode)||!q||!Number.isFinite(Number(q.value))||Number(q.value)<=0){missing.push(p.name);return 0;}if(!isRecent(q)){missing.push(p.name);stale.push(p.name);return 0;}const cents=Math.round(Number(q.value)*100)*Number(state.basket[p.id]);subtotalCents+=cents;if(q.kind==='demo')demo++;else provided++;return cents;});
+ const complete=missing.length===0&&items.length>0;
+ const coupons=complete?couponsForOptimization(store):[];
+ const c=complete?discountCents(subtotalCents,coupons,couponEligibleAmounts(store,items,costs,coupons)):{discount:0,coupon:null,eligible:0};
+ const employeeCents=complete?employeeBenefitCents(store,subtotalCents,c.discount):0;
+ const totalCents=subtotalCents-c.discount-employeeCents;
+ return {store,subtotal:subtotalCents/100,missing,stale,demo,provided,discount:c.discount/100,coupon:c.coupon,eligibleSubtotal:c.eligible/100,employeeDiscount:employeeCents/100,totalDiscount:(c.discount+employeeCents)/100,total:totalCents/100,complete,coverage:items.length?Math.round((items.length-missing.length)/items.length*100):0};
+}
+function allResults(){return STORES.map(evaluate).sort((a,b)=>Number(b.complete)-Number(a.complete)||(a.complete?a.total-b.total:b.provided-a.provided)||a.store.localeCompare(b.store));}
+
+// Preferencias persistentes: a falta de datos, no inventar un resultado.
+const SPLIT_DEFAULTS={mode:'split',minSpend:30,minSavings:5,rule:'either'};
+function splitPreferences(){
+ const input=state.splitPreferences||{};
+ return {mode:input.mode==='single'?'single':'split',minSpend:Number.isFinite(Number(input.minSpend))?Math.min(10000,Math.max(0,Number(input.minSpend))):SPLIT_DEFAULTS.minSpend,minSavings:Number.isFinite(Number(input.minSavings))?Math.min(10000,Math.max(0,Number(input.minSavings))):SPLIT_DEFAULTS.minSavings,rule:input.rule==='both'?'both':'either'};
+}
+function validPriceFor(product,store){
+ const q=state.prices[product.id]?.[store];
+ if(!q||(q.kind==='demo'&&!simulatedMode)||!isRecent(q)||!Number.isFinite(Number(q.value))||Number(q.value)<=0)return null;
+ // Reproduce el redondeo de la cesta a céntimos: unitario (2 decimales) por unidades.
+ return Math.round(Number(q.value)*100)*Number(state.basket[product.id]);
+}
+function couponsForOptimization(store){
+ return state.coupons.filter(c=>c.store===store&&c.active&&c.channel!=='online'&&(!c.validFrom||c.validFrom<=day())&&(!c.expires||c.expires>=day())&&Number.isFinite(Number(c.value))&&Number(c.value)>0);
+}
+function discountCents(subtotalCents,coupons,eligibleAmounts){
+ let best=0,index=-1,bestEligible=0;
+ coupons.forEach((c,i)=>{
+  const eligible=eligibleAmounts?eligibleAmounts[i]??0:subtotalCents;
+  if(!Number.isFinite(eligible)||eligible<=0)return;
+  const thresholdBase=c.minBasis==='eligible'?eligible:subtotalCents;
+  if(thresholdBase<Math.round(Number(c.min||0)*100))return;
+  const val=Number(c.value);
+  if(!Number.isFinite(val)||val<=0)return;
+  const disc=c.type==='percent'?Math.round(eligible*Math.min(100,val)/100):Math.round(val*100);
+  const d=Math.min(eligible,Math.max(0,disc));
+  if(d>best){best=d;index=i;bestEligible=eligible;}
+ });
+ return {discount:best,coupon:index>=0?coupons[index]:null,eligible:bestEligible};
+}
+/** Busca repartir entre dos tiendas; revisa precios vigentes, formato y cupones. */
+function optimizeSplit(){
+ const prefs=splitPreferences(),items=selected(),singles=allResults().filter(r=>r.complete);
+ const baseline=singles[0]||null,baselineCents=baseline?Math.round(baseline.total*100):null;
+ if(!items.length)return {status:'empty',baseline,exact:true};
+ const minSpendCents=Math.round(prefs.minSpend*100),minSavingCents=Math.round(prefs.minSavings*100);
+ let winner=null,unrestricted=null,pairsCovering=0,allExact=true;
+ const unit=STORES.map(store=>items.map(product=>validPriceFor(product,store)));
+ const coupons=STORES.map(store=>couponsForOptimization(store));
+ const better=(x,y)=>!y||x.totalCents<y.totalCents||(x.totalCents===y.totalCents&&x.storeIndices.join(',')<y.storeIndices.join(','));
+ for(let a=0;a<STORES.length;a++)for(let b=a+1;b<STORES.length;b++){
+  let sumA=0,sumB=0,numberA=0,numberB=0,feasible=true;
+  const flex=[];const fixedAssign=Array(items.length).fill(-1);
+  const eligA=coupons[a].map(()=>0),eligB=coupons[b].map(()=>0);
+  for(let i=0;i<items.length;i++){
+   const va=unit[a][i],vb=unit[b][i];
+   if(va===null&&vb===null){feasible=false;break;}
+   if(va===null){sumB+=vb;numberB++;fixedAssign[i]=b;coupons[b].forEach((c,j)=>{if(couponMatches(c,items[i],STORES[b]))eligB[j]+=vb;});}
+   else if(vb===null){sumA+=va;numberA++;fixedAssign[i]=a;coupons[a].forEach((c,j)=>{if(couponMatches(c,items[i],STORES[a]))eligA[j]+=va;});}
+   else {const elA=coupons[a].map(c=>couponMatches(c,items[i],STORES[a])?va:0),elB=coupons[b].map(c=>couponMatches(c,items[i],STORES[b])?vb:0);flex.push({i,va,vb,elA,elB});sumA+=va;numberA++;elA.forEach((v,j)=>eligA[j]+=v);}
+  }
+  if(!feasible)continue;
+  pairsCovering++;
+  const count=flex.length;
+  const fastExact=count<=16;
+  if(!fastExact)allExact=false;
+  const consider=(aa,bb,na,nb,mask,flags=null,eligibleA=eligA,eligibleB=eligB)=>{
+   if(!na||!nb)return;
+   const da=discountCents(aa,coupons[a],eligibleA),db=discountCents(bb,coupons[b],eligibleB);
+   const ea=employeeBenefitCents(STORES[a],aa,da.discount),eb=employeeBenefitCents(STORES[b],bb,db.discount);
+   const totalCents=aa+bb-da.discount-db.discount-ea-eb;
+   const savings=baselineCents===null?null:baselineCents-totalCents;
+   // Solo recomendar cuando la división no empeore el precio de la cesta entera.
+   if(savings!==null&&savings<=0)return;
+   const spendOK=(aa-da.discount-ea)>=minSpendCents&&(bb-db.discount-eb)>=minSpendCents;
+   const savingOK=savings!==null&&savings>=minSavingCents;
+   const qualifies=prefs.rule==='both'?(spendOK&&savingOK):(spendOK||savingOK);
+   const c={storeIndices:[a,b],storeNames:[STORES[a],STORES[b]],subtotalCents:[aa,bb],discounts:[da,db],employeeDiscounts:[ea,eb],totalCents,savingsCents:savings,spendOK,savingOK,mask,flags,fixedAssign,flex,exact:fastExact};
+   if(better(c,unrestricted))unrestricted=c;
+   if(qualifies&&better(c,winner))winner=c;
+  };
+  if(fastExact){
+   let previousGray=0;const maximum=1<<count;
+   for(let k=0;k<maximum;k++){
+    const gray=k^(k>>1);
+    if(k){const changed=gray^previousGray;const bit=31-Math.clz32(changed);const f=flex[bit];
+     if(gray&changed){sumA-=f.va;numberA--;sumB+=f.vb;numberB++;f.elA.forEach((v,j)=>eligA[j]-=v);f.elB.forEach((v,j)=>eligB[j]+=v);}
+     else {sumA+=f.va;numberA++;sumB-=f.vb;numberB--;f.elA.forEach((v,j)=>eligA[j]+=v);f.elB.forEach((v,j)=>eligB[j]-=v);}
+    }
+    consider(sumA,sumB,numberA,numberB,gray);
+    previousGray=gray;
+   }
+  }else{
+   // Heurística para cestas largas: repartos base + cambios individuales de tienda.
+   // Los datos siguen siendo exactos pero no garantizamos el mínimo global.
+   const initial=flex.map(f=>f.vb<f.va);
+   const alternatives=[initial,flex.map(()=>false),flex.map(()=>true)];
+   for(let k=0;k<count;k++){const flip=initial.slice();flip[k]=!flip[k];alternatives.push(flip);}
+   for(const flags of alternatives){
+    let aa=0,bb=0,na=0,nb=0;
+    const ha=coupons[a].map(()=>0),hb=coupons[b].map(()=>0);
+    for(let i=0;i<items.length;i++)if(fixedAssign[i]===a){aa+=unit[a][i];na++;coupons[a].forEach((c,j)=>{if(couponMatches(c,items[i],STORES[a]))ha[j]+=unit[a][i];});}else if(fixedAssign[i]===b){bb+=unit[b][i];nb++;coupons[b].forEach((c,j)=>{if(couponMatches(c,items[i],STORES[b]))hb[j]+=unit[b][i];});}
+    flex.forEach((f,k)=>{if(flags[k]){bb+=f.vb;nb++;f.elB.forEach((v,j)=>hb[j]+=v);}else{aa+=f.va;na++;f.elA.forEach((v,j)=>ha[j]+=v);}});
+    consider(aa,bb,na,nb,0,flags,ha,hb);
+   }
+
+  }
+ }
+ function assemble(candidate){
+  if(!candidate)return null;
+  const [a,b]=candidate.storeIndices;
+  const lists=[[],[]];
+  items.forEach((item,i)=>{
+   const fixed=candidate.fixedAssign[i];
+   const pos=candidate.flex.findIndex(x=>x.i===i);
+   const to=(fixed!==-1?fixed:((candidate.flags?candidate.flags[pos]:(candidate.mask&(1<<pos)))?b:a));
+   const ix=to===a?0:1;
+   lists[ix].push({name:item.name,unit:item.unit,qty:Number(state.basket[item.id]),costCents:unit[to][i]});
+  });
+  return {...candidate,stores:lists.map((list,i)=>({name:candidate.storeNames[i],lines:list,subtotalCents:candidate.subtotalCents[i],discountCents:candidate.discounts[i].discount,employeeDiscountCents:candidate.employeeDiscounts[i],coupon:candidate.discounts[i].coupon,totalCents:candidate.subtotalCents[i]-candidate.discounts[i].discount-candidate.employeeDiscounts[i]})),exact:candidate.exact&&allExact};
+ }
+ return {status:winner?(baseline?'recommended':'unverified'):unrestricted?'under-threshold':pairsCovering?'no-eligible-allocation':'no-coverage',baseline,exact:allExact,winner:baseline?assemble(winner):null,possible:!baseline?assemble(winner):null,alternative:assemble(unrestricted),pairsCovering,prefs};
+}
+function renderSplit(){
+ const p=splitPreferences(),active=p.mode==='split';
+ document.getElementById('modeSingle').setAttribute('aria-pressed',String(!active));
+ document.getElementById('modeSplit').setAttribute('aria-pressed',String(active));
+ document.getElementById('splitOptions').hidden=!active;
+ document.getElementById('modeHelp').textContent=active?'Tu preferencia: repartir entre dos supermercados. Basta que ambas compras alcancen el mínimo O que el ahorro llegue al objetivo. No se recomienda una opción más cara.':'Compara toda tu lista en una tienda y descubre cuál sale más barata.';
+ document.getElementById('splitMinSpend').value=String(p.minSpend);
+ document.getElementById('splitMinSavings').value=String(p.minSavings);
+ document.getElementById('splitRule').value=p.rule;
+ if(!active)return;
+ const r=optimizeSplit(),target=document.getElementById('splitResult');
+ const moneyC=c=>EUR(c/100);
+ const prefsHTML=`<div class="split-preference">⚙ Tu regla: <strong>${p.rule==='either'?'al menos una':'las dos'}</strong> · Ambas tiendas ≥ <strong>${EUR(p.minSpend)}</strong> de gasto final <strong>${p.rule==='either'?'O':'Y'}</strong> ahorro ≥ <strong>${EUR(p.minSavings)}</strong>.</div>`;
+ if(r.status==='empty'){target.innerHTML=prefsHTML+'<div class="split-empty">Añade productos a la cesta para calcular un reparto.</div>';return;}
+ if(r.status==='no-coverage'){target.innerHTML=prefsHTML+'<div class="split-empty">No hay precios vigentes suficientes para repartir <strong>toda la cesta</strong> entre dos supermercados. Introduce precios que falten o activa la simulación para probar.</div>';return;}
+ if(r.status==='no-eligible-allocation'){target.innerHTML=prefsHTML+'<div class="split-empty">Con los precios y cupones actuales, repartir la compra en dos supermercados no mejora el coste de comprarla completa en uno solo. No recomendamos hacer dos paradas.</div>';return;}
+ const c=r.winner||r.possible||r.alternative;
+ if(r.status==='under-threshold'){
+  const price=c?moneyC(c.totalCents):'—';
+  target.innerHTML=prefsHTML+`<div class="split-empty">Hay un reparto posible (${price}) pero no cumple las condiciones elegidas, o no mejora la compra en una tienda. No recomiendo desplazarte a otro supermercado. ${!r.baseline?'No existe una tienda única con precios completos, por lo que no puede calcularse el ahorro.':''}</div>`;
+  return;
+ }
+ const hasBenchmark=!!r.baseline;
+ const savings=hasBenchmark?`Ahorras <strong>${moneyC(c.savingsCents)}</strong> frente a ${esc(r.baseline.store)} (${EUR(r.baseline.total)})`:'No existe una tienda única con precios completos: este reparto <strong>no puede calificarse como el más barato</strong>.';
+ const checks=`Condiciones: ${c.spendOK?'✓':'✕'} ambas compras ≥ ${EUR(p.minSpend)} · ${c.savingOK?'✓':'✕'} ahorro ≥ ${EUR(p.minSavings)} · Regla: ${p.rule==='both'?'ambas':'al menos una'}`;
+ const stores=c.stores.map(st=>`<div class="split-store"><div class="split-store-head"><b>${esc(st.name)}</b><strong>${moneyC(st.totalCents)}</strong></div><div class="small muted">Subtotal ${moneyC(st.subtotalCents)}${st.discountCents?` · Cupón −${moneyC(st.discountCents)} (${esc(st.coupon?.name||'')})`:''}${st.employeeDiscountCents?` · Empleado 10 % −${moneyC(st.employeeDiscountCents)}`:''}</div><ul class="split-list">${st.lines.map(x=>`<li>${x.qty} × ${esc(x.name)} (${esc(x.unit)}) · <strong>${moneyC(x.costCents)}</strong></li>`).join('')}</ul></div>`).join('');
+ const caption=hasBenchmark?(c.exact?'Mejor reparto encontrado':'Reparto aproximado'):'Reparto posible, no validado como mejor opción';
+ const tone=hasBenchmark?'split-recommendation':'split-unverified';
+ target.innerHTML=prefsHTML+`<div class="${tone}"><div class="small" style="font-weight:800;color:#527345">${caption} · 2 supermercados</div><div class="money">${moneyC(c.totalCents)}</div><div class="split-meta">${savings}</div><div class="split-meta">${checks}</div>${stores}<div class="split-share"><button type="button" data-share-split>↗ Compartir listas por supermercado</button></div><p class="split-share-status" id="shareSplitStatus" role="status" aria-live="polite"></p></div>`;
+}
+function splitAsText(){
+ const r=optimizeSplit(),candidate=r.winner||r.possible;
+ if(!candidate)return '';
+ const moneyC=c=>EUR(c/100);
+ const lines=['CompraSmart · Compra repartida en dos supermercados','',...candidate.stores.flatMap(st=>[st.name+' — '+moneyC(st.totalCents),...st.lines.map(x=>'• '+x.qty+' × '+x.name+' ('+x.unit+') · '+moneyC(x.costCents)),...(st.discountCents?['Cupón: −'+moneyC(st.discountCents)]:[]),...(st.employeeDiscountCents?['Descuento empleado 10 % (después del cupón): −'+moneyC(st.employeeDiscountCents)]:[]),''])];
+ lines.push('TOTAL COMBINADO: '+moneyC(candidate.totalCents));
+ if(r.baseline)lines.push('Mejor tienda única: '+r.baseline.store+' · '+EUR(r.baseline.total),'Ahorro estimado: '+moneyC(candidate.savingsCents));
+ else lines.push('Sin referencia completa de tienda única: no se ha verificado el ahorro.');
+ lines.push('');
+ lines.push('Aviso: '+(simulatedMode?'PRECIOS FICTICIOS DE DEMOSTRACIÓN; no utilizar para comprar.':'Precios introducidos manualmente o importados; comprobar vigencia y condiciones de cupones.'));
+ lines.push('No incluye transporte ni desplazamiento.');
+ return lines.join('\n');
+}
+document.getElementById('splitResult').addEventListener('click',async e=>{
+ if(!e.target.closest('[data-share-split]'))return;
+ const content=splitAsText(),status=document.getElementById('shareSplitStatus');
+ if(!content||!status)return;
+ try{if(navigator.share){await navigator.share({title:'CompraSmart · Compra repartida',text:content});status.textContent='Lista compartida.';return;}}
+ catch(err){if(err.name==='AbortError')return;}
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(content);status.textContent='Listas copiadas al portapapeles.';return;}}catch{}
+ const area=document.createElement('textarea');area.value=content;area.style.cssText='position:fixed;opacity:0;top:0';document.body.appendChild(area);area.select();let ok=false;
+ try{ok=document.execCommand('copy');}catch{}area.remove();
+ status.textContent=ok?'Listas copiadas al portapapeles.':'No se han podido copiar. Copia el texto que aparece.';
+ if(!ok)prompt('Copia el reparto:',content);
+});
+function updateHero(){const n=selected().reduce((x,p)=>x+Number(state.basket[p.id]),0);document.getElementById('heroMetric').innerHTML=`<small>Unidades de tu cesta</small>${n} <span style="font-size:15px;font-weight:500">uds.</span>`;}
+let basketOnly=false;
+function renderCatalog(){const list=state.products.filter(p=>(p.name+' '+p.unit+' '+p.category).toLowerCase().includes(filterCatalog.toLowerCase())&&(!basketOnly||Number(state.basket[p.id])>0));document.getElementById('catalog').innerHTML=list.length?list.map(p=>`<div class="item"><div><div class="item-name">${esc(p.name)}</div><div class="item-meta">${esc(p.unit)} · ${esc(p.category)}</div></div><div class="stepper"><button data-change="${esc(p.id)}" data-dir="-1" aria-label="Quitar ${esc(p.name)}">−</button><span class="qty">${Number(state.basket[p.id]||0)}</span><button data-change="${esc(p.id)}" data-dir="1" aria-label="Añadir ${esc(p.name)}">+</button></div></div>`).join(''):'<div class="empty">No se encuentran productos.</div>';
+const items=selected();document.getElementById('countItems').textContent=`${items.length} referencias · ${items.reduce((x,p)=>x+Number(state.basket[p.id]),0)} unidades`;
+}
+function renderCompare(){const r=allResults();const complete=r.filter(x=>x.complete);const first=complete[0];const last=complete.at(-1);const summary=document.getElementById('quickSummary');if(!selected().length){summary.innerHTML='<div class="callout" style="margin-bottom:15px">Añade productos en la cesta para ver una comparación.</div>';}
+else if(!first){summary.innerHTML='<div class="callout" style="margin-bottom:15px">Ninguna tienda dispone de precios para toda la cesta. Completa las celdas pendientes antes de elegir la más barata.</div>';}
+else {summary.innerHTML=`<div class="summary"><div class="summary-row"><div><small>Mejor total estimado · cesta completa</small><div style="font-size:17px;font-weight:750;margin:5px 0">${esc(first.store)}</div></div><b>${EUR(first.total)}</b></div><div class="summary-row" style="margin-top:8px"><small>${first.coupon?`Cupón: −${EUR(first.discount)}`:'Sin cupón'}${first.employeeDiscount>0?` · Empleado: −${EUR(first.employeeDiscount)}`:''}</small><small class="save">${complete.length>1?`Hasta ${EUR(round(last.total-first.total))} de diferencia`:''}</small></div></div>`;}
+document.getElementById('results').innerHTML=r.map((x,i)=>`<div class="result ${x.complete&&first?.store===x.store?'best':''}"><div><div class="store-name">${esc(x.store)} ${x.complete&&first?.store===x.store?'🥇':''}</div><div class="store-sub">${x.complete?'Cesta completa':`${x.missing.length} referencias sin precio vigente · total parcial`} · ${x.demo} precios ficticios · ${x.provided} aportados${x.stale.length?` · ${x.stale.length} caducados`:''}</div><div class="coverage-wrap"><div class="coverage-bar" role="progressbar" aria-label="Cobertura de precios ${esc(x.store)}" aria-valuenow="${x.coverage}" aria-valuemin="0" aria-valuemax="100"><i style="width:${x.coverage}%"></i></div><div class="coverage-label">${x.coverage}% de la cesta con precios utilizables</div></div>${x.discount>0?`<div class="discount" style="text-align:left">✓ Cupón: −${EUR(x.discount)}</div>`:''}${x.employeeDiscount>0?`<div class="discount" style="text-align:left">✓ Empleado 10 % después de cupón: −${EUR(x.employeeDiscount)}</div>`:''}${x.complete&&!x.discount&&state.coupons.some(c=>c.store===x.store&&c.active&&c.channel!=='online'&&(!c.validFrom||c.validFrom<=day())&&(!c.expires||c.expires>=day())&&(c.scope!=='selected'||state.products.some(p=>Number(state.basket[p.id])>0&&couponMatches(c,p,x.store)))&&Number(c.min||0)>x.subtotal)?`<div class="detail">Próximo cupón: faltan ${EUR(round(Math.min(...state.coupons.filter(c=>c.store===x.store&&c.active&&c.channel!=='online'&&(!c.validFrom||c.validFrom<=day())&&(!c.expires||c.expires>=day())&&(c.scope!=='selected'||state.products.some(p=>Number(state.basket[p.id])>0&&couponMatches(c,p,x.store)))&&Number(c.min||0)>x.subtotal).map(c=>Number(c.min)))-x.subtotal))} de subtotal${!x.complete?' (cesta parcial)':''}</div>`:''}${!x.complete?`<div class="detail">Sin precio: ${esc(x.missing.slice(0,2).join(', '))}${x.missing.length>2?'…':''}</div>`:''}</div><div style="text-align:right"><div class="price">${x.complete?EUR(x.total):'—'}</div>${!x.complete?`<div class="missing">Subtotal: ${EUR(x.subtotal)}</div>`:x.totalDiscount?`<div class="small muted">Antes: ${EUR(x.subtotal)}</div>`:''}</div></div>`).join('');
+const allDemo=r.reduce((x,s)=>x+s.demo,0),allProv=r.reduce((x,s)=>x+s.provided,0);document.getElementById('resultFoot').innerHTML=`Comparación orientativa (una tienda o reparto): ${allDemo} registros ficticios utilizados y ${allProv} precios aportados para esta cesta. ${simulatedMode?'Simulación activada: no utilices los importes para tomar una decisión de compra.':'Los precios ficticios están excluidos de los cálculos.'} Los precios aportados con más de ${freshDays||'infinitos'} días${freshDays?' se excluyen del ranking.':' no se excluyen por antigüedad (precaución).'} Ningún precio se transfiere automáticamente desde las fuentes externas. Los cupones de productos concretos solo se calculan si sus referencias están vinculadas o sus productos marcados. Los cupones y posibles excepciones del descuento de empleado requieren comprobar sus condiciones reales. No incluye transporte, envío ni costes de desplazamiento. El reparto es de hasta dos supermercados y requiere precios suficientes entre ambos.`;
+}
+function renderCoupons(){
+ const active=state.coupons.filter(c=>c.active&&(!c.validFrom||c.validFrom<=day())&&(!c.expires||c.expires>=day()));
+ const matches=allResults().filter(s=>s.discount>0);
+ document.getElementById('couponMetrics').innerHTML=`<div class="metric"><div class="metric-label">Cupones guardados</div><div class="metric-value">${state.coupons.length}</div><div class="metric-foot">Editables y privados en este dispositivo</div></div><div class="metric"><div class="metric-label">Vigentes y activos</div><div class="metric-value">${active.length}</div><div class="metric-foot">Con las fechas indicadas</div></div><div class="metric"><div class="metric-label">Tiendas con cupón aplicado</div><div class="metric-value">${matches.length}</div><div class="metric-foot">Máximo uno por supermercado</div></div>`;
+ document.getElementById('couponsList').innerHTML=state.coupons.length?state.coupons.map(c=>{
+  const expired=c.expires&&c.expires<day(),notStarted=c.validFrom&&c.validFrom>day();
+  const val=c.type==='percent'?`${c.value}%`:EUR(c.value);
+  const scope=(c.scope||'all')==='selected'?'Solo productos concretos':'Toda la cesta';
+  const ids=Array.isArray(c.productIds)?c.productIds:[];
+  const codes=parseSkuCodes(c.codes);
+  const scopeLine=(c.scope||'all')==='selected'?`<br>${ids.length} productos marcados · ${codes.length} referencias SKU` : '';
+  return `<div class="coupon"><div style="display:flex;gap:11px"><input type="checkbox" data-coupon-toggle="${esc(c.id)}" ${c.active?'checked':''} aria-label="Activar cupón ${esc(c.name)}"><div><div class="coupon-title">${esc(c.name)}</div><div class="coupon-info"><strong>${esc(c.store)}</strong> · ${val} · Mínimo ${EUR(c.min||0)} sobre ${(c.minBasis==='eligible')?'productos válidos':'cesta'}<br>${esc(scope)}${scopeLine}${c.promoCode?`<br>Código del cupón: <strong>${esc(c.promoCode)}</strong>`:''}${c.conditions?`<details style="margin-top:5px"><summary style="cursor:pointer">Ver condiciones guardadas</summary><div style="white-space:pre-wrap">${esc(c.conditions)}</div></details>`:''}<br>${c.validFrom?'Desde: '+esc(c.validFrom)+' · ':''}${c.expires?'Hasta: '+esc(c.expires):'Sin fecha de caducidad'} · ${c.channel==='store'?'Solo tienda':c.channel==='online'?'Solo online':'Tienda / online'}</div>${expired?'<span class="pill demo" style="display:inline-block;margin-top:7px">Caducado</span>':''}${notStarted?'<span class="pill neutral" style="display:inline-block;margin-top:7px">Aún no válido</span>':''}</div></div><div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end"><button class="btn ghost" data-coupon-edit="${esc(c.id)}" aria-label="Editar cupón">Editar</button><button class="btn ghost" data-coupon-delete="${esc(c.id)}" aria-label="Eliminar cupón">Eliminar</button></div></div>`;}).join(''):'<div class="empty">No hay cupones registrados.</div>';
+}
+function renderPrices(){const shown=state.products.filter(p=>(p.name+' '+p.unit).toLowerCase().includes(filterPrices.toLowerCase()));document.getElementById('priceHead').innerHTML=`<tr><th>Producto · formato</th>${STORES.map(s=>`<th>${esc(s)}</th>`).join('')}</tr>`;document.getElementById('priceBody').innerHTML=shown.map(p=>`<tr><td>${esc(p.name)}<span class="subnote">${esc(p.unit)} · ID: ${esc(p.id)}</span></td>${STORES.map(s=>{const q=state.prices[p.id]?.[s];return `<td><input type="number" step="0.01" min="0" class="pricefield ${q?.kind==='demo'?'demo':q?'manual':''}" value="${q?esc(q.value):''}" placeholder="—" data-price-id="${esc(p.id)}" data-price-store="${esc(s)}" aria-label="Precio de ${esc(p.name)} en ${esc(s)}"><span class="subnote">${q?(q.kind==='demo'?'Ficticio':`Manual · ${esc(q.date||'sin fecha')}`):'Sin precio'}</span></td>`}).join('')}</tr>`).join('');}
+function fillStoreSelect(){document.getElementById('couponStore').innerHTML=STORES.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');}
+
+let mobileStore='BM';let mobilePriceSearch='';let pricesBasketOnly=false;
+function renderMobilePrices(){
+ const select=document.getElementById('mobileStore');if(!select)return;
+ if(!select.options.length){select.innerHTML=STORES.map(st=>`<option value="${esc(st)}">${esc(st)}</option>`).join('')}
+ select.value=mobileStore;
+ const shown=state.products.filter(p=>(p.name+' '+p.unit+' '+p.category).toLowerCase().includes(mobilePriceSearch.toLowerCase())&&(!pricesBasketOnly||Number(state.basket[p.id])>0));
+ document.getElementById('mobilePriceRows').innerHTML=shown.length?shown.map(p=>{
+   const q=state.prices[p.id]?.[mobileStore];const isDemo=q?.kind==='demo';const label=q?(isDemo?'Precio ficticio · no válido para comparar':`Aportado · ${esc(q.date||'sin fecha')}${isRecent(q)?'':' · ANTIGUO / SIN FECHA'}`):'Sin precio registrado';
+   return `<div class="mobile-price-row ${isDemo?'demo':q?'manual':''}"><div class="mobile-price-description"><b>${esc(p.name)}</b><small>${esc(p.unit)} · ${label}</small></div><label class="mobile-price-input-wrap"><input type="number" min="0.01" step="0.01" inputmode="decimal" placeholder="—" value="${q?esc(q.value):''}" data-mobile-price-id="${esc(p.id)}" data-mobile-price-store="${esc(mobileStore)}" aria-label="Precio de ${esc(p.name)} en ${esc(mobileStore)}"><span>€</span></label></div>`;
+ }).join(''):'<div class="empty">No hay productos con ese nombre.</div>';
+}
+document.getElementById('mobileStore').addEventListener('change',e=>{mobileStore=e.target.value;renderMobilePrices()});
+document.getElementById('onlyBasketPrices').addEventListener('click',e=>{pricesBasketOnly=!pricesBasketOnly;e.currentTarget.setAttribute('aria-pressed',String(pricesBasketOnly));e.currentTarget.textContent=pricesBasketOnly?'✓ Solo mi cesta':'Mostrar solo productos de mi cesta';renderMobilePrices();});
+const freshnessControl=document.getElementById('freshDays');freshnessControl.value=String(freshDays);freshnessControl.addEventListener('change',e=>{freshDays=Number(e.target.value);try{localStorage.setItem('comprasmart-freshdays',String(freshDays));}catch{}renderCompare();renderSplit();renderMobilePrices();});
+document.getElementById('mobilePriceSearch').addEventListener('input',e=>{mobilePriceSearch=e.target.value;renderMobilePrices()});
+document.getElementById('mobilePriceRows').addEventListener('change',e=>{const el=e.target;if(!el.matches('[data-mobile-price-id]'))return;const id=el.dataset.mobilePriceId,store=el.dataset.mobilePriceStore,raw=el.value.trim();if(!state.prices[id])state.prices[id]={};if(raw===''){delete state.prices[id][store];}else{const value=Number(raw);if(!Number.isFinite(value)||value<=0){alert('El precio debe ser superior a 0.');renderMobilePrices();return;}state.prices[id][store]={value:round(value),kind:'manual',date:day(),source:'Precio introducido manualmente',url:''};}render();});
+document.getElementById('onlyInBasket').addEventListener('click',e=>{basketOnly=!basketOnly;e.currentTarget.setAttribute('aria-pressed',String(basketOnly));e.currentTarget.textContent=basketOnly?'✓ Solo productos añadidos':'Mostrar solo mi cesta';renderCatalog();});
+if('serviceWorker' in navigator && (location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1')){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+}
+
+function render(){updateHero();renderCatalog();renderCompare();renderSplit();renderCoupons();renderPrices();renderMobilePrices();renderSkuEditor();document.getElementById('employeeBenefitEnabled').checked=benefitEnabled();document.querySelector('.benefit-toggle span').textContent=benefitEnabled()?'Activado':'Desactivado';save();}
+function tab(name){activeTab=name;window.scrollTo({top:0,behavior:'instant'});document.querySelectorAll('.tab,.mobile-tab').forEach(el=>{el.classList.toggle('active',el.dataset.tab===name);if(el.classList.contains('mobile-tab'))el.setAttribute('aria-current',el.dataset.tab===name?'page':'false')});document.querySelectorAll('.panel').forEach(el=>el.classList.toggle('active',el.id===name));}
+document.querySelectorAll('[data-tab]').forEach(btn=>btn.addEventListener('click',()=>tab(btn.dataset.tab)));
+document.getElementById('employeeBenefitEnabled').addEventListener('change',e=>{state.employeeBenefit={enabled:e.target.checked};render();});
+document.getElementById('simulatedMode').addEventListener('change',e=>{simulatedMode=e.target.checked;renderCompare();renderSplit();});
+
+function updateSplit(k,v){const x=splitPreferences();x[k]=v;state.splitPreferences=x;renderSplit();save();}
+document.getElementById('modeSingle').addEventListener('click',()=>updateSplit('mode','single'));
+document.getElementById('modeSplit').addEventListener('click',()=>updateSplit('mode','split'));
+for(const [id,k] of [['splitMinSpend','minSpend'],['splitMinSavings','minSavings']]){
+ document.getElementById(id).addEventListener('change',e=>{const v=Number(e.target.value);if(!Number.isFinite(v)||v<0||v>10000){alert('Introduce un importe entre 0 y 10.000 €.');renderSplit();return;}updateSplit(k,round(v));});
+}
+document.getElementById('splitRule').addEventListener('change',e=>updateSplit('rule',e.target.value));
+
+document.getElementById('searchProducts').addEventListener('input',e=>{filterCatalog=e.target.value;renderCatalog();});
+document.getElementById('searchPrices').addEventListener('input',e=>{filterPrices=e.target.value;renderPrices();});
+document.getElementById('catalog').addEventListener('click',e=>{const btn=e.target.closest('[data-change]');if(!btn)return;const id=btn.dataset.change;state.basket[id]=Math.max(0,Math.min(999,Number(state.basket[id]||0)+Number(btn.dataset.dir)));render();});
+document.getElementById('couponsList').addEventListener('change',e=>{if(!e.target.matches('[data-coupon-toggle]'))return;const c=state.coupons.find(c=>c.id===e.target.dataset.couponToggle);if(c){c.active=e.target.checked;render();}});
+function renderCouponPicker(ids){
+ const chosen=new Set(ids??[...document.querySelectorAll('[data-coupon-product]:checked')].map(e=>e.value));
+ const container=document.getElementById('couponProductPicker');
+ container.innerHTML=state.products.map(p=>`<label><input type="checkbox" data-coupon-product value="${esc(p.id)}" ${chosen.has(p.id)?'checked':''}><span>${esc(p.name)} · ${esc(p.unit)}</span></label>`).join('');
+ const specific=document.getElementById('couponScope').value==='selected';
+ document.getElementById('couponTargets').hidden=!specific;
+}
+document.getElementById('couponScope').addEventListener('change',()=>renderCouponPicker());
+function cancelCouponEdit(){editingCouponId=null;const f=document.getElementById('couponForm');f.reset();document.getElementById('couponFormTitle').textContent='Crear un cupón';document.getElementById('saveCouponBtn').textContent='＋ Guardar cupón';document.getElementById('cancelCouponEdit').hidden=true;renderCouponPicker([]);}
+document.getElementById('cancelCouponEdit').addEventListener('click',cancelCouponEdit);
+document.getElementById('couponsList').addEventListener('click',e=>{
+ const edit=e.target.closest('[data-coupon-edit]');
+ if(edit){const c=state.coupons.find(c=>c.id===edit.dataset.couponEdit);if(!c)return;editingCouponId=c.id;const f=document.getElementById('couponForm');for(const k of ['name','store','type','value','min','validFrom','expires','channel','scope','minBasis','promoCode','conditions']){const input=f.elements.namedItem(k);if(input)input.value=c[k]??(k==='scope'?'all':k==='minBasis'?'basket':'');}document.getElementById('couponSkuCodes').value=Array.isArray(c.codes)?c.codes.join('\n'):String(c.codes||'');renderCouponPicker(c.productIds||[]);document.getElementById('couponFormTitle').textContent='Editar cupón';document.getElementById('saveCouponBtn').textContent='Guardar cambios';document.getElementById('cancelCouponEdit').hidden=false;f.scrollIntoView({behavior:'smooth',block:'center'});return;}
+ const del=e.target.closest('[data-coupon-delete]');if(!del)return;
+ if(!confirm('¿Eliminar este cupón?'))return;
+ state.coupons=state.coupons.filter(c=>c.id!==del.dataset.couponDelete);
+ if(editingCouponId===del.dataset.couponDelete)cancelCouponEdit();render();
+});
+document.getElementById('couponForm').addEventListener('submit',e=>{
+ e.preventDefault();const f=new FormData(e.target);
+ let val=Number(f.get('value')),min=Number(f.get('min'));
+ if(!Number.isFinite(val)||val<=0||!Number.isFinite(min)||min<0)return alert('Introduce valores válidos.');
+ if(f.get('type')==='percent'&&val>100)return alert('El porcentaje no puede superar el 100 %.');
+ const validFrom=String(f.get('validFrom')||''),expires=String(f.get('expires')||'');
+ if(validFrom&&expires&&validFrom>expires)return alert('La fecha inicial debe ser anterior o igual al vencimiento.');
+ const scope=String(f.get('scope')||'all');
+ const productIds=scope==='selected'?[...e.target.querySelectorAll('[data-coupon-product]:checked')].map(n=>n.value):[];
+ const codes=scope==='selected'?parseSkuCodes(f.get('codes')):[];
+ if(scope==='selected'&&!productIds.length&&!codes.length)return alert('Selecciona algún producto o introduce al menos un código de artículo.');
+ const updated={id:editingCouponId||'c'+Date.now(),name:String(f.get('name')).trim(),store:String(f.get('store')),type:String(f.get('type')),value:round(val),min:round(min),validFrom,expires,channel:String(f.get('channel')),scope,productIds,codes,minBasis:String(f.get('minBasis'))==='eligible'?'eligible':'basket',promoCode:String(f.get('promoCode')||'').trim(),conditions:String(f.get('conditions')||'').trim().slice(0,3000),active:true};
+ if(!updated.name||!STORES.includes(updated.store))return alert('Indica un nombre y un supermercado válidos.');
+ if(editingCouponId){const i=state.coupons.findIndex(c=>c.id===editingCouponId);if(i<0){cancelCouponEdit();return;}updated.active=state.coupons[i].active;state.coupons[i]=updated;}else state.coupons.push(updated);
+ cancelCouponEdit();render();
+});
+// Mapa explícito producto del catálogo ⇄ referencia concreta en el supermercado.
+let skuStore='BM';
+function renderSkuEditor(){
+ const select=document.getElementById('skuStore');
+ if(!select.options.length)select.innerHTML=STORES.map(st=>`<option value="${esc(st)}">${esc(st)}</option>`).join('');
+ select.value=skuStore;
+ const only=document.getElementById('skuOnlyBasket').checked;
+ const list=state.products.filter(p=>!only||Number(state.basket[p.id])>0);
+ document.getElementById('skuRows').innerHTML=list.length?list.map(p=>`<label class="sku-map-row"><span><b>${esc(p.name)}</b><small>${esc(p.unit)}</small></span><input type="text" data-sku-id="${esc(p.id)}" value="${esc(state.storeCodes?.[p.id]?.[skuStore]||'')}" maxlength="90" placeholder="Código / SKU" autocomplete="off" spellcheck="false" aria-label="Código del artículo ${esc(p.name)} en ${esc(skuStore)}"></label>`).join(''):'<p class="small muted">Añade productos a tu cesta o desactiva el filtro.</p>';
+}
+document.getElementById('skuStore').addEventListener('change',e=>{skuStore=e.target.value;renderSkuEditor();});
+document.getElementById('skuOnlyBasket').addEventListener('change',renderSkuEditor);
+document.getElementById('skuRows').addEventListener('change',e=>{
+ const id=e.target.dataset.skuId;if(!id)return;
+ const v=e.target.value.trim();
+ if(v&&state.products.some(p=>p.id!==id&&normSKU(state.storeCodes?.[p.id]?.[skuStore])===normSKU(v))) {alert('Ya has vinculado este código a otro producto de la misma tienda.');renderSkuEditor();return;}
+ if(!state.storeCodes||typeof state.storeCodes!=='object')state.storeCodes={};
+ if(!state.storeCodes[id])state.storeCodes[id]={};
+ if(v)state.storeCodes[id][skuStore]=v;else delete state.storeCodes[id][skuStore];
+ save();renderCompare();renderSplit();renderCoupons();renderSkuEditor();
+ document.getElementById('skuStatus').textContent=v?'Código guardado para '+(state.products.find(p=>p.id===id)?.name||'producto')+'.':'Código eliminado.';
+});
+document.getElementById('productForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const name=String(f.get('name')||'').trim();const unit=String(f.get('unit')||'').trim();if(!name||!unit)return;const id='u'+Date.now();state.products.push({id,name,unit,category:String(f.get('category'))});state.basket[id]=1;state.prices[id]={};e.target.reset();render();tab('precios');});
+document.getElementById('priceBody').addEventListener('change',e=>{if(!e.target.matches('[data-price-id]'))return;const id=e.target.dataset.priceId,store=e.target.dataset.priceStore;const raw=e.target.value.trim();if(!state.prices[id])state.prices[id]={};if(raw===''){delete state.prices[id][store];}else{const value=Number(raw);if(!Number.isFinite(value)||value<=0)return alert('El precio debe ser superior a 0.');state.prices[id][store]={value:round(value),kind:'manual',date:day(),source:'Precio introducido manualmente',url:''};}render();});
+function download(name,content,mime){const blob=new Blob([content],{type:mime});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),800);}
+function csvCell(v){return '"'+String(v??'').replaceAll('"','""')+'"';}
+document.getElementById('csvTemplate').addEventListener('click',()=>{const head=['producto_id','supermercado','precio','fecha','fuente','url'];const lines=[head,...state.products.flatMap(p=>STORES.map(s=>[p.id,s,'','','','']))];download('comprasmart_plantilla_precios.csv','\ufeff'+lines.map(row=>row.map(csvCell).join(';')).join('\r\n'),'text/csv;charset=utf-8');});
+function parseCSV(text){const data=[];let row=[],field='',q=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(q&&text[i+1]==='"'){field+='"';i++;}else q=!q;}else if(c===';'&&!q){row.push(field);field='';}else if((c==='\n'||c==='\r')&&!q){if(c==='\r'&&text[i+1]==='\n')i++;row.push(field);field='';if(row.some(x=>x.trim()))data.push(row);row=[];}else field+=c;}row.push(field);if(row.some(x=>x.trim()))data.push(row);return data;}
+document.getElementById('csvFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const rows=parseCSV((await f.text()).replace(/^\ufeff/,''));if(!rows.length)throw Error('El CSV está vacío.');const headers=rows.shift().map(x=>x.trim().toLowerCase());const required=['producto_id','supermercado','precio'];for(const h of required){if(!headers.includes(h))throw Error('Falta columna '+h);}const col=(r,k)=>String(r[headers.indexOf(k)]??'').trim();let ok=0,skip=0;for(const row of rows){const id=col(row,'producto_id'),store=col(row,'supermercado'),v=Number(col(row,'precio').replace(',','.'));if(!state.products.some(p=>p.id===id)||!STORES.includes(store)||!Number.isFinite(v)||v<=0){skip++;continue;}const d=col(row,'fecha');if(d&&!/^\d{4}-\d{2}-\d{2}$/.test(d)){skip++;continue;}if(!state.prices[id])state.prices[id]={};state.prices[id][store]={value:round(v),kind:'csv',date:d||day(),source:col(row,'fuente')||'CSV aportado',url:col(row,'url')};ok++;}render();document.getElementById('importStatus').textContent=`Importados ${ok} precios. Filas omitidas: ${skip}.`;if(ok)tab('precios');}catch(err){document.getElementById('importStatus').textContent='Error: '+err.message;}e.target.value='';});
+function basketAsText(){const items=selected();return 'CompraSmart · Lista de compra\n\n'+(items.length?items.map(p=>'• '+Number(state.basket[p.id])+' × '+p.name+' ('+p.unit+')').join('\n'):'No hay productos en la cesta.')+'\n\nPrecios no incluidos. La lista se ha generado localmente.';}
+document.getElementById('shareBasket').addEventListener('click',async()=>{
+ const text=basketAsText();const status=document.getElementById('shareStatus');
+ try {if(navigator.share){await navigator.share({title:'Lista de la compra · CompraSmart',text});status.textContent='Lista compartida.';return;}}
+ catch(err){if(err.name==='AbortError')return;}
+ try{if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(text);status.textContent='Lista copiada al portapapeles.';return;}}catch{}
+ const area=document.createElement('textarea');area.value=text;area.style.position='fixed';area.style.top='0';area.style.opacity='0';document.body.appendChild(area);area.focus();area.select();let ok=false;try{ok=document.execCommand('copy');}catch{}area.remove();status.textContent=ok?'Lista copiada al portapapeles.':'Copia la lista desde el cuadro que aparecerá.';if(!ok)prompt('Copia tu lista:',text);
+});
+document.getElementById('clearBasket').addEventListener('click',()=>{if(!confirm('¿Vaciar toda la cesta? Los productos y precios guardados se conservarán.'))return;state.products.forEach(p=>state.basket[p.id]=0);render();});
+let pendingInstall=null;
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();pendingInstall=event;document.getElementById('installApp').hidden=false;document.getElementById('installStatus').textContent='Ya puedes instalarla desde este navegador.';});
+document.getElementById('installApp').addEventListener('click',async()=>{if(!pendingInstall)return;pendingInstall.prompt();await pendingInstall.userChoice;pendingInstall=null;document.getElementById('installApp').hidden=true;});
+window.addEventListener('appinstalled',()=>{pendingInstall=null;document.getElementById('installApp').hidden=true;document.getElementById('installStatus').textContent='CompraSmart instalada correctamente.';});
+document.getElementById('exportJson').addEventListener('click',()=>download('comprasmart_copia_'+day()+'.json',JSON.stringify(state,null,2),'application/json;charset=utf-8'));
+document.getElementById('jsonFile').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;try{const s=JSON.parse(await f.text());if(!validState(s)||!s.products.every(p=>p.id&&p.name&&p.unit)||!s.coupons.every(c=>c.id&&STORES.includes(c.store)))throw Error('Estructura de copia no válida.');if(confirm('¿Sustituir todos los datos actuales por la copia seleccionada?')){state=s;render();alert('Copia restaurada.');}}catch(err){alert('No se pudo restaurar: '+err.message);}e.target.value='';});
+document.getElementById('resetDemo').addEventListener('click',()=>{if(confirm('¿Restaurar todos los datos de ejemplo? Se perderán los cambios no exportados.')){state=seed();render();tab('comparar');}});
+
+// PRECIOS REALES. Este módulo no introduce precios sin validar en la cesta.
+let lastSuper = null;
+const marketStatus = document.getElementById('marketStatus');
+const superStatus = document.getElementById('superStatus');
+async function parseApi(res){let data;try{data=await res.json()}catch{throw new Error('El servidor ha respondido en un formato inesperado.')}if(!res.ok)throw new Error(data.error||('Error HTTP '+res.status));return data;}
+const liveEnabled=location.protocol==='http:'||location.protocol==='https:';
+if(!liveEnabled){marketStatus.textContent='Las fuentes online requieren un backend independiente. Este archivo HTML permite utilizar la cesta y los precios manuales.';superStatus.textContent='Este conector necesita un backend configurado.';}
+let backendReady=false;
+const sourceButtons=['refreshMarket','querySuper'].map(id=>document.getElementById(id));
+sourceButtons.forEach(button=>button.disabled=true);
+(async()=>{
+ if(!liveEnabled)return;
+ try{const res=await fetch('./api/status',{cache:'no-store'});const payload=await res.json();backendReady=res.ok&&payload?.ok===true&&Array.isArray(payload.sources);}catch{}
+ sourceButtons.forEach(button=>button.disabled=!backendReady);
+ if(!backendReady){marketStatus.textContent='No hay un servidor de conectores activo. Puedes importar precios CSV y usar la app sin conexión.';superStatus.textContent='La consulta experimental necesita activar el backend propio. Los importes de tu cesta no se modifican.';}
+})();
+document.getElementById('refreshMarket').addEventListener('click',async()=>{
+  marketStatus.textContent='Consultando fuente de datos abiertos…';
+  try{
+    if(!backendReady)throw new Error('No hay servidor de conectores activo. La comparación manual continúa disponible.');
+    const r=await parseApi(await fetch('/api/market'));
+    const latest=r.rows||[];
+    const shops=['Mercadona','Dia'];
+    const products=new Map();
+    for(const x of latest){const k=x.product_id+'|'+x.name+'|'+x.unit;const o=products.get(k)||{name:x.name,unit:x.unit,prices:{}};o.prices[x.retailer]=x.reference_price;products.set(k,o);}
+    const group=[...products.values()].sort((a,b)=>a.name.localeCompare(b.name,'es'));
+    document.getElementById('marketHead').innerHTML='<tr><th>Referencia genérica</th>'+shops.map(x=>'<th>'+esc(x)+'</th>').join('')+'</tr>';
+    document.getElementById('marketRows').innerHTML=group.map(x=>'<tr><td>'+esc(x.name)+'<span class="subnote">'+esc(x.unit)+'</span></td>'+shops.map(shop=>'<td>'+(x.prices[shop]!=null?EUR(x.prices[shop]):'—')+'</td>').join('')+'</tr>').join('');
+    marketStatus.innerHTML='<strong>'+group.length+' referencias encontradas</strong> · Fecha del dato: '+esc(r.latest_date)+' · Fuente: <a target="_blank" rel="noopener noreferrer" href="https://tutandem.es/datos">tuTándem (CC BY 4.0)</a>.';
+  }catch(e){marketStatus.textContent='No se han cargado precios reales: '+e.message;}
+});
+document.getElementById('querySuper').addEventListener('click',async()=>{
+  const items=selected().slice(0,10).map(p=>({query:p.name+' '+p.unit,quantity:Math.min(99,Math.max(1,Math.round(state.basket[p.id]||1)))}));
+  if(!items.length){superStatus.textContent='Primero añade algún producto a tu cesta.';return;}
+  superStatus.textContent='Consultando Superfudis (hasta 25 segundos)…';
+  try{
+    if(!backendReady)throw new Error('No hay servidor de conectores activo. La comparación manual continúa disponible.');
+    const data=await parseApi(await fetch('/api/superfudis',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items,retailers:['Mercadona','Carrefour','Dia']})}));
+    lastSuper=data;
+    document.getElementById('downloadSuper').disabled=false;
+    document.getElementById('superRaw').textContent=JSON.stringify(data.data,null,2);
+    document.getElementById('superDetails').style.display='block';
+    superStatus.textContent='Respuesta recibida para '+items.length+' productos'+(selected().length>10?' (de '+selected().length+' referencias en tu cesta)':'')+'. Datos sin importar: revisa formatos, disponibilidad y precios finales. '+(data.cache?'Consulta guardada en caché.':'');
+  }catch(e){superStatus.textContent='Consulta no completada: '+e.message+' No se ha alterado tu cesta.';}
+});
+document.getElementById('downloadSuper').addEventListener('click',()=>{if(lastSuper)download('comprasmart_superfudis_'+day()+'.json',JSON.stringify(lastSuper,null,2),'application/json;charset=utf-8')});
+
+
+// ===============================================
+// 1.0 · Escáner de cupones: OCR en navegador + revisión explícita.
+// No usa backend; solo precarga campos, NO añade el cupón a la cesta.
+// ===============================================
+let scannedPhoto=null,scanRotation=0,scanPhotoURL=null,scanBusy=false;
+const scanEl=id=>document.getElementById(id);
+let scanDraftPendingReview=false;
+function scanReviewPending(pending){scanDraftPendingReview=!!pending;const wrap=scanEl('scanReviewWrap');wrap.hidden=!pending;wrap.style.display=pending?'flex':'none';scanEl('scanReviewed').checked=false;}
+function scanStatus(text,kind=''){
+ const target=scanEl('scanStatus');target.textContent=text;target.className='scan-status '+kind;
+}
+function scanWarnings(lines){const el=scanEl('scanWarnings');el.hidden=!lines.length;el.innerHTML=lines.map(x=>'• '+esc(x)).join('<br>');}
+function normalizeOCR(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase();}
+function couponDate(v){
+ const raw=String(v||'').trim();let d,m,y;
+ let found=raw.match(/^(20\d\d)[\/-](\d{1,2})[\/-](\d{1,2})$/);
+ if(found){y=Number(found[1]);m=Number(found[2]);d=Number(found[3]);}
+ else{found=raw.match(/^(\d{1,2})[.\/-](\d{1,2})[.\/-](\d{2}|20\d{2})$/);if(!found)return '';
+ d=Number(found[1]);m=Number(found[2]);y=Number(found[3]);if(y<100)y+=2000;}
+ if(y<2000||y>2099||m<1||m>12||d<1||d>31)return '';
+ const parsed=new Date(Date.UTC(y,m-1,d));if(parsed.getUTCFullYear()!==y||parsed.getUTCMonth()!==m-1||parsed.getUTCDate()!==d)return '';
+ return `${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+}
+function findCouponDates(text){
+ const regex=/\b(?:20\d{2}[\/-]\d{1,2}[\/-]\d{1,2}|\d{1,2}[.\/-]\d{1,2}[.\/-](?:20\d{2}|\d{2}))\b/g;
+ const found=[...text.matchAll(regex)].map(m=>({original:m[0],date:couponDate(m[0]),pos:m.index})).filter(x=>x.date);
+ // Uses position and date cues, and does not invent a year for incomplete dates.
+ let validFrom='',expires='';
+ for(const f of found){const prior=normalizeOCR(text.slice(Math.max(0,f.pos-54),f.pos));
+  if(/(?:HASTA|CADUCA|VENCE|VENCIMIENTO|FIN|FINALIZA|VALIDO HASTA|AL)\s*(?:EL|DIA|DEL|:)?.{0,12}$/.test(prior))expires=f.date;
+  else if(/(?:DESDE|INICIO|EMPIEZA|DEL|VALIDO DESDE|A PARTIR DEL)\s*(?:EL|DIA|:)?.{0,12}$/.test(prior))validFrom=f.date;
+ }
+ if(found.length>=2){
+  // Range "del X al Y" is common. Respect ascending order; no guarantee when dates are ambiguous.
+  if(!validFrom)validFrom=found[0].date;
+  if(!expires)expires=found[found.length-1].date;
+ }else if(found.length===1){
+  if(!validFrom&&!expires)expires=found[0].date;
+ }
+ if(validFrom&&expires&&validFrom>expires)return {validFrom:'',expires:'',ambiguous:true,all:found};
+ return {validFrom,expires,ambiguous:found.length>2,all:found};
+}
+function parseEuroAmount(s){let t=String(s||'').trim().replace(/\s/g,'').replace(/\.(?=\d{3}(?:[.,]|$))/g,'').replace(',','.');return Number(t);}
+function pickValue(text){
+ const lines=text.split(/\n/).map(x=>x.trim()).filter(Boolean),options=[];
+ for(const line of lines){
+  const upper=normalizeOCR(line);
+  for(const m of line.matchAll(/(\d{1,2}(?:[.,]\d{1,2})?)\s*%/g)){
+   let n=parseEuroAmount(m[1]);if(n<=0||n>100)continue;
+   let score=3+(/DESCUENTO|AHORRA|REBAJA|EXTRA|PROMOCION/.test(upper)?4:0)+(/EMPLEAD|IVA|IMPUEST|FINANCIACI/.test(upper)?-4:0);
+   options.push({type:'percent',value:n,score});
+  }
+  // Capture '10 € de descuento', 'Ahorra 5 €', but avoid the purchase minimum.
+  for(const m of line.matchAll(/(\d{1,4}(?:[.,]\d{1,2})?)\s*(?:€|EUROS?)/gi)){
+   let n=parseEuroAmount(m[1]);if(n<=0||n>1000)continue;
+   const before=normalizeOCR(line.slice(Math.max(0,m.index-50),m.index));
+   const after=normalizeOCR(line.slice(m.index+m[0].length,m.index+m[0].length+45));
+   // Decide using *local* context, rather than rejecting discounts whenever the
+   // line also contains the minimum purchase (e.g. "10 € descuento por 80 €").
+   const promoCue=/(?:AHORRA|DESCUENTO|REBAJA|CUPON|VALE|DTO)\s*(?:DE|DEL|:)?\s*$/.test(before)||/^\s*(?:DE\s+)?(?:DESCUENTO|AHORRO|DE\s+DTO)/.test(after);
+   const minCue=/(?:MINIM[OA]|A\s+PARTIR\s+DE|SUPERIOR\s+A|COMPRAS?\s+DE|AL\s+MENOS|GASTO\s+DE|PRECIO\s+DE|TOTAL\s+DE|IMPORTE\s+DE)\s*$/.test(before);
+   if(minCue&&!promoCue)continue;
+   options.push({type:'fixed',value:n,score:promoCue?8:(minCue?-8:0)});
+  }
+ }
+ options.sort((a,b)=>b.score-a.score);
+ if(!options.length)return null;
+ if(options[0].score<3)return null; // no clear discount term
+ return options[0];
+}
+function pickMinimum(text){
+ const normalized=normalizeOCR(text),r=/(?:COMPRA\s*MINIMA|GASTO\s*MINIMO|A\s*PARTIR\s*DE|COMPRAS?\s*(?:DE|SUPERIORES?\s*A)|GASTA\s*AL\s*MENOS|POR\s*COMPRAS?\s*DE|SUPERIOR\s*A)\s*(?:UNOS?|LOS|LAS|IMPORTE\s*DE)?\s*(\d{1,5}(?:[.,]\d{1,2})?)\s*(?:€|EUROS?)/;
+ const m=normalized.match(r);const n=m?parseEuroAmount(m[1]):0;return n>0&&n<10000?n:0;
+}
+function pickPromoCode(text){
+ // Do not confuse product SKU and coupon barcode with a promotional code.
+ const m=normalizeOCR(text).match(/(?:CODIGO\s*(?:PROMOCIONAL|DEL\s*CUPON|PROMO|DE\s*DESCUENTO)|PROMOCODE)\s*[:#-]?\s*([A-Z0-9][A-Z0-9_-]{2,39})/);
+ return m?m[1]:'';
+}
+function pickSKUs(text){
+ const found=new Set();const lines=text.split(/\n/);
+ for(const line of lines){const n=normalizeOCR(line);
+  if(!/(?:\bSKU\b|\bEAN\b|\bREFERENCIA(?:S)?\b|CODIGO(?:S)?\s*(?:DE\s*)?(?:ARTICULO|PRODUCTO|INTERNO))/.test(n))continue;
+  const tail=n.split(/(?:SKU|EAN|REFERENCIAS?|CODIGOS?\s*(?:DE\s*)?(?:ARTICULO|PRODUCTO|INTERNO))\s*[:#-]?/).slice(1).join(' ');
+  // Pure numbers (including leading 0) or alphanumeric internal reference.
+  for(const m of tail.matchAll(/\b(?:[A-Z]{1,5}[-_]?[0-9][A-Z0-9_-]{2,23}|[0-9]{5,15})\b/g)){
+   const value=m[0];if(/^20\d\d[-\/]?\d/.test(value)||/^\d{1,2}[-\/]\d{1,2}/.test(value))continue;
+   found.add(value);
+  }
+ }
+ return [...found].slice(0,30);
+}
+function parseCouponText(text){
+ const raw=String(text||'').slice(0,12000).replace(/\r/g,'');const caps=normalizeOCR(raw),warnings=[];
+ let store='';
+ const stores=[['Supermercado El Corte Inglés',/\b(?:SUPERMERCADO\s+)?EL\s+CORTE\s+INGLES\b/],['Hipercor',/\bHIPERCOR\b/],['Supercor',/\bSUPERCOR\b/],['Mercadona',/\bMERCADONA\b/],['Carrefour',/\bCARREFOUR\b/],['Ahorramás',/\bAHORRAMAS\b/],['Alcampo',/\bALCAMPO\b/],['DIA',/\b(?:SUPERMERCADOS?\s+)?DIA\b/],['BM',/\b(?:BM\s+SUPERMERCADOS?|SUPERMERCADOS?\s+BM|\bBM\b)/]];
+ const matched=stores.filter(([,re])=>re.test(caps)).map(([name])=>name);
+ if(matched.length===1)store=matched[0];else if(matched.length>1)warnings.push('Aparecen varios supermercados: revisa la tienda a la que pertenece el cupón.');
+ else warnings.push('No se identifica con seguridad el supermercado: selecciónalo manualmente.');
+ const value=pickValue(raw);if(!value)warnings.push('No se identifica claramente el descuento (importe o porcentaje): complétalo manualmente.');
+ const dates=findCouponDates(raw);if(dates.ambiguous)warnings.push('Se han encontrado varias fechas o un intervalo ambiguo: confirma la validez.');
+ if(!dates.all.length)warnings.push('No se han detectado fechas completas: comprueba la caducidad.');
+ const codes=pickSKUs(raw);
+ const selected=/(?:ARTICULOS?\s+(?:SELECCIONADOS?|ESPECIFICOS?|INDICADOS?|ADHERIDOS?)|PRODUCTOS?\s+(?:SELECCIONADOS?|ESPECIFICOS?|INDICADOS?)|SOLO\s+(?:EN|PARA)\s+(?:ESTOS?\s+)?(?:ARTICULOS?|PRODUCTOS?)|REFERENCIAS?\s+INCLUIDAS?)/.test(caps)||codes.length>0;
+ if(selected&&!codes.length)warnings.push('Parece limitado a determinados artículos; marca los productos manualmente o introduce sus SKU.');
+ if(/EXCLU(?:YE|IDOS?|SIONES?)|NO\s+(?:ACUMULABLE|APLICABLE)|UN\s+(?:SOLO|UNICO)\s+USO|TARJETA\s+CLIENTE|SOLO\s+(?:CON|PARA)\s+SOCIOS?/.test(caps))warnings.push('Se han detectado condiciones o exclusiones: léelas antes de confirmar.');
+ const name=store?`Cupón ${store} (foto)`:'Cupón fotografiado';
+ return {store,name,type:value?.type||null,value:value?.value||null,min:pickMinimum(raw),validFrom:dates.validFrom,expires:dates.expires,scope:selected?'selected':'all',codes,promoCode:pickPromoCode(raw),conditions:raw.slice(0,3000),warnings};
+}
+function applyParsedCoupon(parsed){
+ const form=scanEl('couponForm');
+ // OCR never saves or activates a coupon. It only pre-fills fields for manual approval.
+ cancelCouponEdit();scanReviewPending(true);
+ const fields={name:parsed.name,type:parsed.type,value:parsed.value,min:parsed.min,validFrom:parsed.validFrom,expires:parsed.expires,scope:parsed.scope,promoCode:parsed.promoCode,conditions:parsed.conditions};
+ for(const [key,val] of Object.entries(fields))if(val!==null&&val!==undefined&&form.elements.namedItem(key))form.elements.namedItem(key).value=String(val);
+ if(parsed.store)form.elements.namedItem('store').value=parsed.store;
+ if(parsed.scope==='selected')scanEl('couponSkuCodes').value=parsed.codes.join('\n');
+ renderCouponPicker([]);
+ scanWarnings(parsed.warnings);
+ scanStatus('Lectura interpretada. Revisa los campos y pulsa «Guardar cupón» solo cuando estén correctos.','ok');
+ scanEl('couponFormTitle').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function interpretScan(){const t=scanEl('scanText').value.trim();if(!t){scanStatus('Primero haz una foto o pega el texto de un cupón.','error');return;}applyParsedCoupon(parseCouponText(t));}
+let OCRScriptPromise=null;
+function loadLocalOCR(){
+ if(window.Tesseract?.createWorker)return Promise.resolve(window.Tesseract);
+ if(OCRScriptPromise)return OCRScriptPromise;
+ OCRScriptPromise=new Promise((resolve,reject)=>{
+   const script=document.createElement('script');script.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';script.async=true;
+   script.onload=()=>window.Tesseract?.createWorker?resolve(window.Tesseract):reject(Error('El lector de texto no se ha inicializado.'));
+   script.onerror=()=>reject(Error('No se ha podido descargar el lector OCR. Comprueba tu conexión.'));
+   document.head.appendChild(script);
+ }).catch(e=>{OCRScriptPromise=null;throw e;});
+ return OCRScriptPromise;
+}
+async function canvasPhoto(file,turn=0){
+ // Preserve EXIF orientation when Chrome decodes images from the camera.
+ const bitmap=await createImageBitmap(file);
+ try{
+  const scale=Math.min(1,2000/Math.max(bitmap.width,bitmap.height));let w=Math.round(bitmap.width*scale),h=Math.round(bitmap.height*scale);
+  const swapped=turn%180!==0,canvas=document.createElement('canvas');canvas.width=swapped?h:w;canvas.height=swapped?w:h;
+  const ctx=canvas.getContext('2d',{alpha:false});ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);
+  ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(turn*Math.PI/180);ctx.drawImage(bitmap,-w/2,-h/2,w,h);
+  return canvas;
+ }finally{bitmap.close?.();}
+}
+
+async function inspectBarcodes(canvas){
+ const target=scanEl('scanBarcodes');target.hidden=true;target.textContent='';
+ if(!('BarcodeDetector' in window))return;
+ try{
+  const formats=await BarcodeDetector.getSupportedFormats();
+  if(!formats.length)return;
+  const scanner=new BarcodeDetector({formats});
+  const findings=await scanner.detect(canvas);
+  const codes=[...new Set(findings.map(f=>String(f.rawValue||'').trim()).filter(v=>v.length>=3&&v.length<=120))].slice(0,8);
+  if(!codes.length)return;
+  target.hidden=false;
+  target.innerHTML='<strong>Códigos de barras / QR detectados</strong><br>'+codes.map((c,i)=>
+    '<div style="display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:6px;flex-wrap:wrap"><code style="overflow-wrap:anywhere">'+esc(c)+'</code>'+
+    (c.length<=90&&!/^https?:/i.test(c)?'<button type="button" class="btn secondary" data-use-barcode="'+i+'">Usar como código del cupón</button>':'')+'</div>').join('')+
+    '<div style="margin-top:6px;font-size:11px">Un código de barras puede identificar al cupón, no al artículo. Comprueba qué representa antes de utilizarlo.</div>';
+  target.querySelectorAll('[data-use-barcode]').forEach(b=>b.addEventListener('click',()=>{
+    const value=codes[Number(b.dataset.useBarcode)];if(value)scanEl('couponForm').elements.namedItem('promoCode').value=value;
+  }));
+ }catch{ /* BarcodeDetector not available or not permitted: OCR text remains usable. */ }
+}
+async function pickScanPhoto(file){
+ if(!file)return;
+ if(!file.type.startsWith('image/')){scanStatus('Selecciona una imagen (JPG, PNG u otra compatible con tu navegador).','error');return;}
+ if(file.size>18*1024*1024){scanStatus('La fotografía supera 18 MB. Haz una foto con menor resolución.','error');return;}
+ if(scanPhotoURL)URL.revokeObjectURL(scanPhotoURL);
+ scannedPhoto=file;scanRotation=0;scanPhotoURL=URL.createObjectURL(file);
+ const preview=scanEl('scanPreview');preview.src=scanPhotoURL;preview.hidden=false;
+ scanEl('scanImageActions').hidden=false;scanEl('scanProgress').hidden=true;scanEl('scanBarcodes').hidden=true;scanWarnings([]);
+ scanStatus('Foto cargada. Pulsa «Reconocer texto»; puedes girarla antes si está de lado.');
+}
+function setScanBusy(b){scanBusy=b;for(const id of ['scanCameraBtn','scanGalleryBtn','scanRotateBtn','scanReadBtn','scanParseBtn'])scanEl(id).disabled=b;}
+async function readCouponPhoto(){
+ if(!scannedPhoto||scanBusy)return;
+ setScanBusy(true);const progress=scanEl('scanProgress');progress.hidden=false;progress.value=0;
+ let worker=null;
+ try{
+  scanStatus('Cargando lector de español en el navegador…');
+  const OCR=await loadLocalOCR();
+  worker=await OCR.createWorker('spa',1,{logger:m=>{
+   if(m?.status==='recognizing text'&&Number.isFinite(m.progress)){progress.value=Math.round(m.progress*100);scanStatus(`Leyendo la foto… ${progress.value}%`);}
+  }});
+  const canvas=await canvasPhoto(scannedPhoto,scanRotation);
+  await inspectBarcodes(canvas);
+  scanStatus('Reconociendo las condiciones del cupón…');
+  const result=await worker.recognize(canvas);
+  const txt=String(result?.data?.text||'').trim();
+  scanEl('scanText').value=txt;
+  if(!txt)throw new Error('No se ha reconocido texto. Acerca la cámara, mejora la luz o introdúcelo manualmente.');
+  const parsed=parseCouponText(txt);
+  if(Number.isFinite(result?.data?.confidence)&&result.data.confidence<60)parsed.warnings.unshift('La lectura de la foto tiene poca fiabilidad: comprueba especialmente números y fechas.');
+  applyParsedCoupon(parsed);
+ }catch(e){scanStatus('No se pudo interpretar la foto: '+e.message+' Puedes pegar el texto manualmente.','error');}
+ finally{if(worker)try{await worker.terminate();}catch{}setScanBusy(false);progress.hidden=true;}
+}
+scanEl('scanCameraBtn').addEventListener('click',()=>scanEl('scanCamera').click());
+scanEl('scanGalleryBtn').addEventListener('click',()=>scanEl('scanGallery').click());
+for(const id of ['scanCamera','scanGallery'])scanEl(id).addEventListener('change',async e=>{await pickScanPhoto(e.target.files?.[0]);e.target.value='';});
+scanEl('scanReadBtn').addEventListener('click',readCouponPhoto);
+scanEl('scanRotateBtn').addEventListener('click',async()=>{
+ if(!scannedPhoto||scanBusy)return;scanRotation=(scanRotation+90)%360;
+ try{const canvas=await canvasPhoto(scannedPhoto,scanRotation);scanEl('scanPreview').src=canvas.toDataURL('image/jpeg',.86);scanStatus(`Foto girada ${scanRotation}°. Ya puedes reconocer el texto.`);}
+ catch(e){scanStatus('No se ha podido girar la imagen: '+e.message,'error');}
+});
+scanEl('scanParseBtn').addEventListener('click',interpretScan);
+scanEl('scanClearBtn').addEventListener('click',()=>{
+ scanEl('scanText').value='';scanEl('scanPreview').hidden=true;scanEl('scanImageActions').hidden=true;scanEl('scanProgress').hidden=true;
+ scanWarnings([]);scanEl('scanBarcodes').hidden=true;scannedPhoto=null;scanRotation=0;if(scanPhotoURL)URL.revokeObjectURL(scanPhotoURL);scanPhotoURL=null;
+ scanStatus('Lectura borrada. Los cupones que ya guardaste no se modifican.');
+});
+
+fillStoreSelect();renderCouponPicker([]);render();
+window.__compraSmartTest={getState:()=>state,evaluate,selected,seed,optimizeSplit,splitPreferences,renderSplit,splitAsText,benefitEnabled,employeeBenefitCents,allResults,couponMatches,couponEligibleAmounts,discountCents,parseSkuCodes,parseCouponText,couponDate,findCouponDates,pickValue,pickMinimum,pickSKUs};
+})();
+</script>
+</body></html>
